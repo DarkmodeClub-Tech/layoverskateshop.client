@@ -1,0 +1,51 @@
+export const products = [
+  {
+    photos: [],
+    name: "camiseta",
+    price: 49.9,
+    category: "camiseta",
+    description: "camiseta ecko decolada",
+  },
+  {
+    photos: [],
+    name: "camiseta",
+    price: 49.9,
+    category: "camiseta",
+    description: "camiseta ecko decolada",
+  },
+  {
+    photos: [],
+    name: "boné",
+    price: 49.9,
+    category: "bones",
+    description: "camiseta ecko decolada",
+  },
+  {
+    photos: [],
+    name: "calça",
+    price: 49.9,
+    category: "calças",
+    description: "camiseta ecko decolada",
+  },
+  {
+    photos: [],
+    name: "relogio",
+    price: 49.9,
+    category: "acessorio",
+    description: "camiseta ecko decolada",
+  },
+  {
+    photos: [],
+    name: "camiseta",
+    price: 49.9,
+    category: "camiseta",
+    description: "camiseta ecko decolada",
+  },
+  {
+    photos: [],
+    name: "camiseta",
+    price: 49.9,
+    category: "camiseta",
+    description: "camiseta ecko decolada",
+  },
+];
