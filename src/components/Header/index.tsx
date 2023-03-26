@@ -1,7 +1,7 @@
 import logo from "../../../public/Sem título.png";
 import logo2 from "../../../public/lyvr-icon-black.png";
 import logo3 from "../../../public/new_logo_lvr_sk8shop.svg";
-import logo4 from "../../../public/g1725.svg";
+import logo4 from "../../assets/g1725.svg";
 
 import { BiSearchAlt } from "react-icons/bi";
 import { useState } from "react";
