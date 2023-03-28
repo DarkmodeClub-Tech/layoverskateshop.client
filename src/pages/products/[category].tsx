@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import { products } from "../../database";
+import Header from "../../components/Header";
+import { products } from "../../assets/database";
 
 interface IProduct {
   photos: string[];
@@ -32,11 +34,15 @@ const ProductPage = () => {
       {filteredProducts.length > 0 ? (
         filteredProducts.map((p) => {
           return (
-            <div>
-              <h1>{p.name}</h1>
-              <h2>{p.description}</h2>
-              <h2>{p.price}</h2>
-            </div>
+            <>
+              <Header />
+              <div>
+                <Image src={p.photos[0]} width={100} height={100} alt="" />
+                <h1>{p.name}</h1>
+                <h2>{p.description}</h2>
+                <h2>{p.price}</h2>
+              </div>
+            </>
           );
         })
       ) : (
