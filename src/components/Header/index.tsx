@@ -1,7 +1,4 @@
-import logo from "../../../public/Sem título.png";
-import logo2 from "../../../public/lyvr-icon-black.png";
-import logo3 from "../../../public/new_logo_lvr_sk8shop.svg";
-import logo4 from "../../assets/g1725.svg";
+import Image from "next/image";
 
 import { BiSearchAlt } from "react-icons/bi";
 import { useState } from "react";
@@ -13,7 +10,8 @@ const Header = () => {
   return (
     <StyledHeader>
       <div className="logo_container">
-        <img src={logo4} alt="" /> Layover Skateshop
+        <Image src="/g1725.svg" alt="" width={100} height={100} /> Layover
+        Skateshop
       </div>
       <form onSubmit={() => ""}>
         <label htmlFor="search">Pesquise o que deseja</label>

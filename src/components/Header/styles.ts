@@ -39,7 +39,6 @@ export const StyledHeader = styled.header`
       width: 60px;
       height: 60px;
       color: #ffff;
-      filter: drop-shadow(0px 10px 20px rgba(255, 128, 0, 1));
     }
   }
 
