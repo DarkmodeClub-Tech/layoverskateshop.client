@@ -9,8 +9,6 @@ export const StyledList = styled.ul`
   width: 100vw;
   overflow-x: auto;
 
-  margin-top: 17vh;
-
   li {
     position: relative;
     display: flex;
@@ -20,7 +18,6 @@ export const StyledList = styled.ul`
 
     width: 250px;
     min-width: 250px;
-    background-color: aliceblue;
     margin: 10px;
     overflow: hidden;
     border: 1px solid black;

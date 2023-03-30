@@ -26,6 +26,7 @@ export const SliderContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 90%;
+    bottom: 10px;
 
     button {
       display: flex;
@@ -34,8 +35,8 @@ export const SliderContainer = styled.div`
       align-items: center;
       border-radius: 10px;
 
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
       padding-top: 5px;
       padding-bottom: 5px;
       outline: none;

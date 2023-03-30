@@ -140,7 +140,7 @@ export const caps = [
   },
   {
     id: "17",
-    photos: ["/bone3.webp"],
+    photos: ["/bone3.webp", "/boné4.webp"],
     name: "camiseta",
     price: 49.9,
     category: "camiseta",
@@ -156,7 +156,7 @@ export const caps = [
   },
   {
     id: "19",
-    photos: ["/bone5.webp"],
+    photos: ["/bone5.webp", "/boné6.webp", "/boné7.webp"],
     name: "camiseta",
     price: 49.9,
     category: "camiseta",

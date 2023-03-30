@@ -4,7 +4,7 @@ import { SliderContainer } from "./styles";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 
 interface ISliderProps {
-  imageURLsList: string[];
+  imageURLsList?: string[];
 }
 
 const Slider = ({ imageURLsList }: ISliderProps) => {
@@ -19,7 +19,7 @@ const Slider = ({ imageURLsList }: ISliderProps) => {
           {<IoMdArrowDropright size={40} />}
         </button>
       </div>
-      <img src={imageURLsList[currentIndex]} alt="" />
+      <img src={imageURLsList && imageURLsList[currentIndex]} alt="imagem" />
     </SliderContainer>
   );
 };
