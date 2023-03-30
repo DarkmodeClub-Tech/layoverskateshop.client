@@ -7,11 +7,14 @@ const Card = ({ name, category, description, photos, price }: ICardProps) => {
     <CardContainer>
       <Slider imageURLsList={photos} />
       <h2 className="product-name">{name}</h2>
-      <span className="product-category">{category}</span>
       <p className="product-description">{description}</p>
-      <span className="product-price">{price}</span>
+      <span className="product-price">
+        R$ {price} ou em até 3 x {}
+      </span>
 
-      <button type="button">Adicionar ao caarrinho</button>
+      <button className="add-to-cart-button" type="button">
+        Adicionar ao carrinho
+      </button>
     </CardContainer>
   );
 };

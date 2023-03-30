@@ -34,15 +34,12 @@ const ProductPage = () => {
       {filteredProducts.length > 0 ? (
         filteredProducts.map((p) => {
           return (
-            <>
-              <Header />
-              <div>
-                <Image src={p.photos[0]} width={100} height={100} alt="" />
-                <h1>{p.name}</h1>
-                <h2>{p.description}</h2>
-                <h2>{p.price}</h2>
-              </div>
-            </>
+            <div>
+              <Image src={p.photos[0]} width={100} height={100} alt="" />
+              <h1>{p.name}</h1>
+              <h2>{p.description}</h2>
+              <h2>{p.price}</h2>
+            </div>
           );
         })
       ) : (
