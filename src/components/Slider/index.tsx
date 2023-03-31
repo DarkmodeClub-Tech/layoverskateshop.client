@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { SliderContainer } from "./styles";
-import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 interface ISliderProps {
   imageURLsList?: string[];
@@ -13,13 +13,25 @@ const Slider = ({ imageURLsList }: ISliderProps) => {
     <SliderContainer>
       <div className="button-container">
         <button type="button" onClick={() => setCurentIndex(currentIndex - 1)}>
-          {<IoMdArrowDropleft size={40} />}
+          {<IoIosArrowBack size={30} />}
         </button>
         <button type="button" onClick={() => setCurentIndex(currentIndex + 1)}>
-          {<IoMdArrowDropright size={40} />}
+          {<IoIosArrowForward size={30} />}
         </button>
       </div>
-      <img src={imageURLsList && imageURLsList[currentIndex]} alt="imagem" />
+      <ul>
+        {imageURLsList && imageURLsList.length > 0 ? (
+          imageURLsList?.map((e, index) => {
+            return (
+              <li key={index}>
+                <img src={e} alt="image" />
+              </li>
+            );
+          })
+        ) : (
+          <></>
+        )}
+      </ul>
     </SliderContainer>
   );
 };

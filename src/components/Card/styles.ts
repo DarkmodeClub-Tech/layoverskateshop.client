@@ -6,6 +6,8 @@ export const CardContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
 
+  background-color: white;
+
   width: 100%;
   height: auto;
 
@@ -13,19 +15,28 @@ export const CardContainer = styled.div`
     margin: 0;
     margin-left: 20px;
     margin-top: 10px;
+
+    font-size: 1.3rem;
+    font-weight: 500;
   }
 
   .product-description {
     margin: 0;
     margin-left: 20px;
     margin-top: 10px;
+    color: var(--grey-2);
   }
 
   .product-price {
     margin: 0;
     margin-left: 20px;
     margin-top: 10px;
-    color: blue;
+    color: var(--color-brand-1);
+  }
+  .button-container {
+    display: inline-flex;
+    gap: 10px;
+    margin-left: 20px;
   }
 
   .add-to-cart-button {
@@ -40,12 +51,14 @@ export const CardContainer = styled.div`
     border-radius: 5px;
 
     margin: 0;
-    margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
 
-    padding: 5px;
+    padding: 10px;
+    font-size: 0.9rem;
+
     :hover {
+      background-color: var(--color-brand-1);
     }
   }
 `;

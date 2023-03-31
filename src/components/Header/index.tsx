@@ -10,12 +10,13 @@ const Header = () => {
   return (
     <StyledHeader>
       <div className="logo_container">
-        <Image src="/g1725.svg" alt="" width={100} height={100} /> Layover
-        Skateshop
+        <Image src="/g1725.svg" alt="" width={100} height={100} />
+        Layover Skateshop
       </div>
       <form onSubmit={() => ""}>
         <label htmlFor="search">Pesquise o que deseja</label>
         <input
+          placeholder="Pesquise o que deseja"
           onChange={(event) => setSearchFieldValue(event.target.value)}
           type="text"
           name="search"
@@ -23,10 +24,12 @@ const Header = () => {
         />
         <button type="submit">{<BiSearchAlt size={50} />}</button>
       </form>
-
       <a href="#">Sobre</a>
       <a href="#">Contato</a>
       <a href="#">Carrinho</a>
+      <button type="button" className="login-button">
+        Login
+      </button>
     </StyledHeader>
   );
 };

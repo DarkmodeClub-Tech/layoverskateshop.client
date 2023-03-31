@@ -21,12 +21,15 @@ export const SliderContainer = styled.div`
 
   .button-container {
     position: absolute;
+    left: 0;
+    bottom: 10px;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
     width: 90%;
-    bottom: 10px;
 
     button {
       display: flex;
@@ -53,7 +56,7 @@ export const SliderContainer = styled.div`
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
         border: 1px solid rgba(255, 255, 255, 0.3);
-        color: rgba(255, 0, 0, 1);
+        color: var(--orange);
       }
     }
   }
