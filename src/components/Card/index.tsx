@@ -12,9 +12,14 @@ const Card = ({ name, category, description, photos, price }: ICardProps) => {
         R$ {price} ou em até 3 x {}
       </span>
 
-      <button className="add-to-cart-button" type="button">
-        Adicionar ao carrinho
-      </button>
+      <div className="button-container">
+        <button className="add-to-cart-button" type="button">
+          Adicionar ao carrinho
+        </button>
+        <button className="add-to-cart-button" type="button">
+          Ver
+        </button>
+      </div>
     </CardContainer>
   );
 };

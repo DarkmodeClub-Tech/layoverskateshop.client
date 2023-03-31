@@ -11,39 +11,67 @@ export const StyledHeader = styled.header`
 
   width: 100vw;
   height: 12vh;
+  z-index: 99;
 
-  background: rgb(255, 128, 0);
+  /* background: rgb(255, 128, 0);
   background: linear-gradient(
     82deg,
     rgba(255, 128, 0, 1) 1%,
     rgba(255, 0, 0, 1) 5%,
     rgba(179, 0, 0, 1) 9%,
     rgba(0, 0, 0, 1) 18%
-  );
+  ); */
 
+  background-color: black;
   color: #ffff;
-
-  border-bottom: 1px solid #ffff;
 
   .logo_container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
-    width: 25%;
+    margin: 20px;
+    border-radius: 50%;
+    padding: 5px;
 
-    font: normal 2rem Arial;
+    font-size: 1.8rem;
+    font-weight: 700;
 
     img {
-      width: 60px;
-      height: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      width: 50px;
+      height: 50px;
       color: #ffff;
+      margin: 10px;
     }
   }
 
-  a {
+  a,
+  .login-button {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
     color: #ffff;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid transparent;
+
+    :hover {
+      color: var(--yellow-2);
+      border-color: var(--yellow-2);
+    }
   }
 
   form {
@@ -52,10 +80,12 @@ export const StyledHeader = styled.header`
     align-items: center;
     justify-content: center;
 
+    background-color: var(--white-fixed);
+
     width: 30%;
     height: 40%;
 
-    border-radius: 10px;
+    border-radius: 20px;
 
     label {
       display: none;
@@ -66,16 +96,19 @@ export const StyledHeader = styled.header`
       justify-content: center;
       align-content: center;
       text-align: center;
+
       width: 90%;
       height: 100%;
-      border-radius: 20px 0 0 20px;
 
+      border: 1px solid transparent;
+      border-radius: 20px 0 0 20px;
       outline: none;
-      border: 1px solid black;
-      padding: 0;
+
+      background-color: var(--grey-7);
 
       :focus {
-        border: 1px solid tomato;
+        border: 1px solid var(--yellow-2);
+        background-color: var(--white-fixed);
       }
     }
     button {
@@ -83,18 +116,23 @@ export const StyledHeader = styled.header`
       flex-direction: column;
       align-items: center;
       justify-content: center;
+
       width: 10%;
       height: 100%;
+
       border-radius: 0 20px 20px 0;
+      border: 1px solid transparent;
+      border-left: 1px solid var(--grey-3);
+
       padding-top: 5px;
       padding-bottom: 5px;
 
       outline: none;
-      border: 1px solid transparent;
-      color: rgba(255, 0, 0, 1);
+      color: var(--grey-0);
 
       :hover {
-        border: 1px solid tomato;
+        background-color: var(--yellow-2);
+        color: var(--grey-0);
       }
     }
   }
