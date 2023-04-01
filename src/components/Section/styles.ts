@@ -5,7 +5,7 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
 
-  margin-top: 18vh;
+  margin-top: 50px;
   width: 100vw;
 
   .button-container-list {

@@ -1,4 +1,22 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const slideList = keyframes`
+ 0% {
+  /* transform: translatex(-100%);} */
+ }
+ 30%{
+  /* transform: translatex(-500%); */
+ }
+ 40%{
+  /* transform: translatex(-1000%); */
+
+ }
+ 100%{
+  /* transform:translatex(0); */
+ }
+
+
+`;
 
 export const Title = styled.h2`
   display: inline-flex;
@@ -18,6 +36,7 @@ export const StyledList = styled.ul`
   overflow-x: hidden;
 
   .li-card {
+    animation: ${slideList} 10s infinite;
     position: relative;
     display: flex;
     flex-direction: column;

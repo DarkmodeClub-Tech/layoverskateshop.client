@@ -35,8 +35,9 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
+ol, ul, li {
 	list-style: none;
+  display: flex;
 }
 blockquote, q {
 	quotes: none;

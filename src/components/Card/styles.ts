@@ -11,6 +11,13 @@ export const CardContainer = styled.div`
   width: 100%;
   height: auto;
 
+  img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
   .product-name {
     margin: 0;
     margin-left: 20px;
@@ -57,8 +64,9 @@ export const CardContainer = styled.div`
     padding: 10px;
     font-size: 0.9rem;
 
+    transition: 1s;
     :hover {
-      background-color: var(--color-brand-1);
+      background-color: var(--orange);
     }
   }
 `;

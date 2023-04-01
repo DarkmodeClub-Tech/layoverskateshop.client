@@ -13,17 +13,8 @@ export const StyledHeader = styled.header`
   height: 12vh;
   z-index: 99;
 
-  /* background: rgb(255, 128, 0);
-  background: linear-gradient(
-    82deg,
-    rgba(255, 128, 0, 1) 1%,
-    rgba(255, 0, 0, 1) 5%,
-    rgba(179, 0, 0, 1) 9%,
-    rgba(0, 0, 0, 1) 18%
-  ); */
-
-  background-color: black;
-  color: #ffff;
+  background-color: var(--grey-0);
+  color: var(--white-fixed);
 
   .logo_container {
     display: flex;
@@ -46,7 +37,7 @@ export const StyledHeader = styled.header`
 
       width: 50px;
       height: 50px;
-      color: #ffff;
+      color: var(--white-fixed);
       margin: 10px;
     }
   }
@@ -59,7 +50,7 @@ export const StyledHeader = styled.header`
     justify-content: center;
 
     background-color: transparent;
-    color: #ffff;
+    color: var(--white-fixed);
 
     font-size: 1rem;
     font-weight: 500;
@@ -67,6 +58,8 @@ export const StyledHeader = styled.header`
     padding: 10px;
     border: none;
     border-bottom: 1px solid transparent;
+
+    transition: 1s;
 
     :hover {
       color: var(--yellow-2);
@@ -129,6 +122,8 @@ export const StyledHeader = styled.header`
 
       outline: none;
       color: var(--grey-0);
+
+      transition: 0.5s;
 
       :hover {
         background-color: var(--yellow-2);

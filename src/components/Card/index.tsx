@@ -5,7 +5,7 @@ import { ICardProps } from "./interfaces";
 const Card = ({ name, category, description, photos, price }: ICardProps) => {
   return (
     <CardContainer>
-      <Slider imageURLsList={photos} />
+      <img src={photos ? photos[0] : ""} alt="" />
       <h2 className="product-name">{name}</h2>
       <p className="product-description">{description}</p>
       <span className="product-price">
