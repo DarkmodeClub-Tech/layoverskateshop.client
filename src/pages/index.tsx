@@ -4,8 +4,18 @@ import { products } from "../assets/database";
 import List from "../components/List";
 import { Navbar } from "../components/Navbar/styles";
 import { Section } from "../components/Section/styles";
+import Slider from "../components/Slider";
 
 const HomePage = () => {
+  const sliderImgs = [
+    "Tenis.jpg",
+    // "truck.jpeg",
+    "truck1.png",
+    "Tenis.jpg",
+    "Tenis.jpg",
+    // "Tenis.jpg",
+    // "Tenis.jpg",
+  ];
   return (
     <>
       <Navbar>
@@ -17,6 +27,7 @@ const HomePage = () => {
         <a>Rodas</a>
         <a>Rolamentos</a>
       </Navbar>
+      <Slider imageURLsList={sliderImgs} />
       <Section>
         <List
           title="Camisetas"

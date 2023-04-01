@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { SliderContainer } from "./styles";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { TbTargetArrow } from "react-icons/tb";
 
 interface ISliderProps {
   imageURLsList?: string[];
@@ -10,15 +10,17 @@ interface ISliderProps {
 const Slider = ({ imageURLsList }: ISliderProps) => {
   const [currentIndex, setCurentIndex] = useState(0);
   return (
-    <SliderContainer>
-      <div className="button-container">
-        <button type="button" onClick={() => setCurentIndex(currentIndex - 1)}>
-          {<IoIosArrowBack size={30} />}
-        </button>
-        <button type="button" onClick={() => setCurentIndex(currentIndex + 1)}>
-          {<IoIosArrowForward size={30} />}
-        </button>
-      </div>
+    <SliderContainer x={`${currentIndex * 100}%`}>
+      <section className="add-container">
+        <div className="add">
+          <Image src="/g1725-black.svg" alt="" width={100} height={100} />
+
+          <p>As melhores marcas você encontra aqui.</p>
+          <span>
+            <TbTargetArrow size={50} />
+          </span>
+        </div>
+      </section>
       <ul>
         {imageURLsList && imageURLsList.length > 0 ? (
           imageURLsList?.map((e, index) => {
