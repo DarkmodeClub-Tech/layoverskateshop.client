@@ -34,7 +34,7 @@ export const SliderContainer = styled.section<ISliderProps>`
   justify-content: center;
 
   width: 100vw;
-  height: 80vh;
+  height: 90vh;
   background-color: var(--white-fixed);
   overflow: hidden;
 
@@ -64,7 +64,7 @@ export const SliderContainer = styled.section<ISliderProps>`
       transform: translate(${({ x }) => x});
       transition: 5s ease-in-out;
 
-      animation: ${slideList} 10s infinite ease-in-out;
+      animation: ${slideList} 20s infinite ease-in-out;
 
       img {
         display: flex;
@@ -82,12 +82,12 @@ export const SliderContainer = styled.section<ISliderProps>`
     z-index: 80;
 
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
 
-    width: 60%;
-    height: 60%;
+    width: 80%;
+    height: 80%;
 
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.2);
@@ -118,6 +118,7 @@ export const SliderContainer = styled.section<ISliderProps>`
         font-weight: 700;
         color: var(--grey-0);
         opacity: 0.7;
+        margin: 30px;
       }
 
       span {
