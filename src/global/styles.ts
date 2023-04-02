@@ -56,13 +56,20 @@ body{
   background-color: #DEE2E6;
 
   ::-webkit-scrollbar {
-  width: 15px;
-  background: transparent;
+    display: flex;
+  width: 12px;
+  background: var(--grey-6);;
+  padding: 2px;
 }
 ::-webkit-scrollbar-thumb {
+  display: flex;
+
   background: var(--grey-4);
-  width: 13px;
+  border-radius:4px;
+  margin: 2px;
+  border: 2px solid var(--grey-6);
 }
+
 
 
 }
