@@ -4,6 +4,8 @@ export const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 99;
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,10 +13,12 @@ export const StyledHeader = styled.header`
 
   width: 100vw;
   height: 12vh;
-  z-index: 99;
 
   background-color: var(--grey-0);
   color: var(--white-fixed);
+  opacity: 0.9;
+
+  border-bottom: 1px solid var(--grey-2);
 
   .logo_container {
     display: flex;
@@ -22,9 +26,10 @@ export const StyledHeader = styled.header`
     align-items: center;
     justify-content: center;
 
+    height: 100%;
+
     margin: 20px;
-    border-radius: 50%;
-    padding: 5px;
+    /* padding: 5px; */
 
     font-size: 1.8rem;
     font-weight: 700;
@@ -42,8 +47,7 @@ export const StyledHeader = styled.header`
     }
   }
 
-  a,
-  .login-button {
+  a {
     display: block;
     flex-direction: column;
     align-items: center;
@@ -55,13 +59,17 @@ export const StyledHeader = styled.header`
     font-size: 1rem;
     font-weight: 500;
 
-    padding: 10px;
+    padding: 6px;
     border: none;
     border-bottom: 1px solid transparent;
 
     transition: 1s;
 
     :hover {
+      color: var(--yellow-2);
+      border-color: var(--yellow-2);
+    }
+    :focus {
       color: var(--yellow-2);
       border-color: var(--yellow-2);
     }

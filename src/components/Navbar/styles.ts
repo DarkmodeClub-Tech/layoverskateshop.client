@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-export const Navbar = styled.nav`
+export const Nav = styled.nav`
   position: absolute;
-  top: 12vh;
+  top: 0;
+  padding-top: 12vh;
   z-index: 98;
 
   margin-bottom: 10vh;
@@ -15,7 +16,6 @@ export const Navbar = styled.nav`
   width: 100%;
 
   background-color: var(--grey-0);
-  border-top: 1px solid var(--grey-2);
   /* background-color: var(--yellow-1); */
 
   a {

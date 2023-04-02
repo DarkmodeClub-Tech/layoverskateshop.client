@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import Link from "next/link";
 import { BiSearchAlt } from "react-icons/bi";
 import { useState } from "react";
 import { StyledHeader } from "./styles";
@@ -9,10 +9,10 @@ const Header = () => {
   const [products, setProducts] = useState([]);
   return (
     <StyledHeader>
-      <div className="logo_container">
+      <Link href="/" className="logo_container">
         <Image src="/g1725.svg" alt="" width={100} height={100} />
         Layover Skateshop
-      </div>
+      </Link>
       <form onSubmit={() => ""}>
         <label htmlFor="search">Pesquise o que deseja</label>
         <input
@@ -24,12 +24,10 @@ const Header = () => {
         />
         <button type="submit">{<BiSearchAlt size={50} />}</button>
       </form>
-      <a href="#">Sobre</a>
-      <a href="#">Contato</a>
-      <a href="#">Carrinho</a>
-      <button type="button" className="login-button">
-        Login
-      </button>
+      <Link href="#">Sobre</Link>
+      <Link href="#">Contato</Link>
+      <Link href="#">Carrinho</Link>
+      <Link href="/login">Login</Link>
     </StyledHeader>
   );
 };
