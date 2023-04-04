@@ -1,8 +1,5 @@
 import styled, { keyframes } from "styled-components";
-
-interface ISliderProps {
-  x?: string;
-}
+import { ISliderAtributes } from "./interfaces";
 
 const slideList = keyframes`
  0% {
@@ -25,7 +22,7 @@ const slideList = keyframes`
 
 `;
 
-export const SliderContainer = styled.section<ISliderProps>`
+export const SliderContainer = styled.section<ISliderAtributes>`
   position: relative;
 
   display: flex;
@@ -33,12 +30,16 @@ export const SliderContainer = styled.section<ISliderProps>`
   align-items: center;
   justify-content: center;
 
-  width: 100vw;
-  height: 90vh;
-  background-color: var(--white-fixed);
+  /* width: 100vw;
+  height: 90vh; */
+
+  width: ${({ width }) => (width ? width : "100vw")};
+  height: ${({ height }) => (height ? height : "90vh")};
+
+  background-color: var(--grey-9);
   overflow: hidden;
 
-  margin-top: 15vh;
+  margin-top: 12vh;
 
   border-bottom: 1px solid var(--grey-4);
   box-shadow: 0px 2px 8px var(--grey-4);
@@ -61,7 +62,7 @@ export const SliderContainer = styled.section<ISliderProps>`
       width: 100%;
       min-width: 100%;
 
-      transform: translate(${({ x }) => x});
+      transform: translate(${({ x }) => (x ? x : "")});
       transition: 5s ease-in-out;
 
       animation: ${slideList} 20s infinite ease-in-out;
@@ -86,8 +87,11 @@ export const SliderContainer = styled.section<ISliderProps>`
     align-items: center;
     justify-content: center; */
 
-    width: 80%;
-    height: 80%;
+    width: ${({ addContainerWidth }) =>
+      addContainerWidth ? addContainerWidth : "80%"};
+
+    height: ${({ addContainerHeight }) =>
+      addContainerHeight ? addContainerHeight : "80%"};
 
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.2);
@@ -127,7 +131,7 @@ export const SliderContainer = styled.section<ISliderProps>`
     }
   }
 
-  .button-container {
+  /* .button-container {
     position: absolute;
     z-index: 99;
 
@@ -157,7 +161,7 @@ export const SliderContainer = styled.section<ISliderProps>`
       cursor: pointer;
 
       :hover {
-        /* From https://css.glass */
+        From https://css.glass
         background: rgba(255, 255, 255, 0.2);
         border-radius: 10px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -167,5 +171,5 @@ export const SliderContainer = styled.section<ISliderProps>`
         color: var(--orange);
       }
     }
-  }
+  } */
 `;

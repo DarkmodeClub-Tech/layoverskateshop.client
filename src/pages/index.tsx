@@ -3,7 +3,7 @@ import { TbTargetArrow } from "react-icons/tb";
 
 import { products } from "../assets/database";
 import List from "../components/List";
-import LoginForm from "../components/LoginForm";
+import LoginForm from "../components/Forms/LoginForm";
 import Navbar from "../components/Navbar";
 import { Section } from "../components/Section/styles";
 import Slider from "../components/Slider";
