@@ -2,16 +2,13 @@ import Image from "next/image";
 import { ReactNode, useState } from "react";
 import { SliderContainer } from "./styles";
 import { TbTargetArrow } from "react-icons/tb";
+import { ISliderProps } from "./interfaces";
 
-interface ISliderProps {
-  imageURLsList?: string[];
-  children?: ReactNode;
-}
-
-const Slider = ({ imageURLsList, children }: ISliderProps) => {
+const Slider = ({ imageURLsList, children, styles }: ISliderProps) => {
   const [currentIndex, setCurentIndex] = useState(0);
+
   return (
-    <SliderContainer x={`${currentIndex * 100}%`}>
+    <SliderContainer x={`${currentIndex * 100}%`} {...styles}>
       <section className="add-container">{children}</section>
       <ul>
         {imageURLsList && imageURLsList.length > 0 ? (

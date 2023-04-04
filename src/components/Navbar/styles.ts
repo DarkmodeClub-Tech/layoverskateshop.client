@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Nav = styled.nav`
   position: absolute;
   top: 0;
-  padding-top: 12vh;
+  padding-top: 10vh;
   z-index: 98;
 
   margin-bottom: 10vh;
@@ -32,7 +32,7 @@ export const Nav = styled.nav`
     color: var(--white-fixed);
 
     padding: 5px;
-    margin: 5px 10px 10px 10px;
+    margin: 5px 10px 5px 10px;
 
     font-size: 1rem;
     font-weight: 500;

@@ -8,7 +8,6 @@ export const Form = styled.form`
 
   background-color: var(--white-fixed);
   opacity: 0.9;
-
   width: 50%;
   /* margin-bottom: 20px; */
   /* margin: auto; */
@@ -18,6 +17,17 @@ export const Form = styled.form`
 
   border-left: 1px solid var(--grey-5);
   border-radius: 0 10px 10px 0;
+
+  .register-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    flex-wrap: wrap;
+  }
 
   fieldset {
     display: flex;

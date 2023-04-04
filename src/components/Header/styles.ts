@@ -12,7 +12,7 @@ export const StyledHeader = styled.header`
   justify-content: space-evenly;
 
   width: 100vw;
-  height: 12vh;
+  height: 10vh;
 
   background-color: var(--grey-0);
   color: var(--white-fixed);
