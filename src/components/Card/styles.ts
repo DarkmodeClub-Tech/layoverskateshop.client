@@ -1,27 +1,55 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  /* justify-content: center; */
 
   background-color: white;
 
   width: 100%;
   height: auto;
+  max-height: 400px;
+  min-height: 400px;
 
-  img {
+  figure {
+    position: absolute;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     width: 100%;
+    height: 60%;
+    overflow-y: hidden;
+
+    img {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+    }
+  }
+  .product-dectails {
+    position: absolute;
+    top: 65%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
   .product-name {
-    margin: 0;
+    /* position: absolute; */
+
     margin-left: 20px;
     margin-top: 10px;
+    /* margin-top: 300px; */
 
     font-size: 1.3rem;
     font-weight: 500;
@@ -38,7 +66,7 @@ export const CardContainer = styled.div`
     margin: 0;
     margin-left: 20px;
     margin-top: 10px;
-    color: var(--color-brand-1);
+    color: var(--random-7);
   }
   .button-container {
     display: inline-flex;

@@ -12,7 +12,7 @@ export const StyledHeader = styled.header`
   justify-content: space-evenly;
 
   width: 100vw;
-  height: 10vh;
+  height: 12vh;
 
   background-color: var(--grey-0);
   color: var(--white-fixed);
@@ -66,8 +66,12 @@ export const StyledHeader = styled.header`
     transition: 1s;
 
     :hover {
-      color: var(--yellow-2);
-      border-color: var(--yellow-2);
+      // color: var(--yellow-2);
+      color: var(--orange);
+
+      // text-decoration: underline;
+
+      /* border-color: var(--yellow-2); */
     }
     :focus {
       color: var(--yellow-2);

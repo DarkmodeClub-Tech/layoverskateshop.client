@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Nav = styled.nav`
   position: absolute;
   top: 0;
-  padding-top: 10vh;
+  padding-top: 12vh;
   z-index: 98;
 
   margin-bottom: 10vh;
@@ -40,7 +40,8 @@ export const Nav = styled.nav`
 
     :hover {
       color: var(--yellow-2);
-      border-color: var(--yellow-2);
+      text-decoration: underline;
+      /* border-color: var(--yellow-2); */
     }
   }
 `;
