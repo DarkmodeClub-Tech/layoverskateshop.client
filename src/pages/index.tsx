@@ -1,14 +1,24 @@
 import Image from "next/image";
 import { TbTargetArrow } from "react-icons/tb";
 
-import { products } from "../assets/database";
+// import { products } from "../assets/database";
 import List from "../components/List";
 import LoginForm from "../components/Forms/LoginForm";
 import Navbar from "../components/Navbar";
 import { Section } from "../components/Section/styles";
 import Slider from "../components/Slider";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { TProduct } from "../interfaces";
 
-const HomePage = () => {
+export const getStaticProps = async () => {
+  const res = await fetch("https://lvr-server.onrender.com/products");
+  const products = await res.json();
+  return { props: { products } };
+};
+
+const HomePage = ({
+  products,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const sliderImgs = [
     "Tenis.jpg",
     // "truck.jpeg",
@@ -18,6 +28,7 @@ const HomePage = () => {
     // "Tenis.jpg",
     // "Tenis.jpg",
   ];
+  console.log(products);
   return (
     <>
       <Slider imageURLsList={sliderImgs}>
@@ -33,13 +44,33 @@ const HomePage = () => {
       <Section>
         <List
           title="Camisetas"
-          products={products.filter((p) => p.category === "camiseta")}
+          products={products.filter(
+            (p: TProduct) => p.category.title === "tshirt"
+          )}
         />
       </Section>
       <Section>
         <List
-          title="Bonés"
-          products={products.filter((p) => p.category === "bone")}
+          title="Shapes"
+          products={products.filter(
+            (p: TProduct) => p.category.title === "shape"
+          )}
+        />
+      </Section>
+      <Section>
+        <List
+          title="Rodas"
+          products={products.filter(
+            (p: TProduct) => p.category.title === "wheels"
+          )}
+        />
+      </Section>
+      <Section>
+        <List
+          title="Tênis"
+          products={products.filter(
+            (p: TProduct) => p.category.title === "shoes"
+          )}
         />
       </Section>
     </>

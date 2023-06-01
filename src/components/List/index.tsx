@@ -1,13 +1,13 @@
 import { Title, StyledList } from "./styles";
 import { motion } from "framer-motion";
-import { IProduct } from "../Card/interfaces";
 import Card from "../Card";
 import { useState } from "react";
 import { RxDoubleArrowLeft, RxDoubleArrowRight } from "react-icons/rx";
+import { TProduct } from "../../interfaces";
 
 interface IListProps {
   title?: string;
-  products: IProduct[];
+  products: TProduct[];
 }
 
 const List = ({ title, products }: IListProps) => {

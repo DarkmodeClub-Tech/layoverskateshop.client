@@ -1,9 +1,3 @@
-export interface IProduct {
-  photos?: string[];
-  name?: string;
-  price?: number;
-  category?: string;
-  description?: string;
-}
+import { TProduct } from "../../interfaces";
 
-export interface ICardProps extends IProduct {}
+export interface ICardProps extends TProduct {}

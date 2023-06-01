@@ -32,7 +32,8 @@ export const StyledList = styled.ul`
   align-items: center;
   justify-content: left;
 
-  width: 98vw;
+  /* width: 98vw; */
+  width: 100%;
   overflow-x: hidden;
 
   .li-card {
@@ -45,11 +46,21 @@ export const StyledList = styled.ul`
 
     width: 250px;
     min-width: 250px;
+    max-width: 320px;
     margin: 10px;
     overflow: hidden;
     border: 1px solid var(--grey-4);
     border-radius: 10px;
     padding: 0;
+
+    /* background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--orange); */
+
     :hover {
       box-shadow: 2px 4px 8px var(--grey-3);
     }
