@@ -14,7 +14,7 @@ const Card = ({
     <CardContainer>
       {photos.map((pht) => {
         return (
-          <figure>
+          <figure key={pht.id}>
             <img src={pht.url} alt="" />
           </figure>
         );
