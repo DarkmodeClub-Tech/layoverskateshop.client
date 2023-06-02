@@ -111,9 +111,10 @@ button{
     --alert-3: #ffe5e5;
 
     /* success */
-    --succes-1: #18794e;
-    --succes-2: #ccebd7;
-    --succes-3: #ddf3e4;
+    --success-0: lime;
+    --success-1: #18794e;
+    --success-2: #ccebd7;
+    --success-3: #ddf3e4;
 
     /* color random profile */
     --orange: #ff6600;
