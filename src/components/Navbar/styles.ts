@@ -40,7 +40,6 @@ export const Nav = styled.nav`
 
     :hover {
       color: var(--yellow-2);
-      text-decoration: underline;
       /* border-color: var(--yellow-2); */
     }
   }
