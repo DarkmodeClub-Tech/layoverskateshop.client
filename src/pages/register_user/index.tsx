@@ -24,9 +24,9 @@ const RegisterUserPage = () => {
           {/* <Image src="/g1725-black.svg" alt="" width={100} height={100} /> */}
 
           {/* <p>As melhores marcas você encontra aqui.</p> */}
-          <p>
+          {/* <p>
             Cadastre-se e encontre os melhores produtos nos melhores preços.
-          </p>
+          </p> */}
           {/* <TbTargetArrow size={50} /> */}
         </div>
       </Slider>

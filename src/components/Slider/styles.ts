@@ -57,7 +57,7 @@ export const SliderContainer = styled.section<ISliderAtributes>`
     align-items: center;
 
     width: 100%;
-    height: 90%;
+    height: 100%;
     overflow: hidden;
     margin: 0;
 
@@ -72,7 +72,7 @@ export const SliderContainer = styled.section<ISliderAtributes>`
       transform: translate(${({ x }) => (x ? x : "")});
       transition: 5s ease-in-out;
 
-      animation: ${slideList} 20s infinite ease-in-out;
+      /* animation: ${slideList} 20s infinite ease-in-out; */
 
       img {
         display: flex;
@@ -90,9 +90,9 @@ export const SliderContainer = styled.section<ISliderAtributes>`
     z-index: 80;
 
     display: flex;
-    /* flex-direction: column;
+    flex-direction: column;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
 
     width: ${({ addContainerWidth }) =>
       addContainerWidth ? addContainerWidth : "80%"};
@@ -110,13 +110,18 @@ export const SliderContainer = styled.section<ISliderAtributes>`
     color: var(--orange); */
 
     .add {
-      display: flex;
+      /* display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-between; */
 
       width: 80%;
       height: 80%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
       img {
         color: var(--grey-0);
@@ -127,13 +132,14 @@ export const SliderContainer = styled.section<ISliderAtributes>`
       p {
         font-size: 3rem;
         font-weight: 700;
-        color: var(--grey-0);
+        color: var(--orange);
         opacity: 0.7;
         margin: 30px;
       }
 
       span {
         opacity: 0.7;
+        color: lime;
       }
     }
   }
