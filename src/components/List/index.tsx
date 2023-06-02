@@ -45,9 +45,9 @@ const List = ({ title, products }: IListProps) => {
         {products.map((p, index) => {
           return (
             <motion.li
-              key={index}
+              key={p.id}
               className="li-card"
-              animate={{ x: -currentIndex * 90 + "%" }}
+              animate={{ x: -currentIndex * 300 + "px" }}
               transition={{ ease: "easeInOut", duration: 0.5 }}
             >
               <Card {...p} />
