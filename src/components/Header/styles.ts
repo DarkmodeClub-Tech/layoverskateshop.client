@@ -67,7 +67,7 @@ export const StyledHeader = styled.header`
 
     :hover {
       // color: var(--yellow-2);
-      color: var(--orange);
+      color: var(--success-0);
 
       // text-decoration: underline;
 
@@ -75,7 +75,7 @@ export const StyledHeader = styled.header`
     }
     :focus {
       color: var(--yellow-2);
-      border-color: var(--yellow-2);
+      /* border-color: var(--yellow-2); */
     }
   }
 
