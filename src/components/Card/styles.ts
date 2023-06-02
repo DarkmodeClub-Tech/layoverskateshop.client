@@ -9,6 +9,7 @@ export const CardContainer = styled.div`
   /* justify-content: center; */
 
   background-color: white;
+  opacity: 5;
 
   width: 100%;
   height: auto;
