@@ -20,7 +20,7 @@ const LoginPage = () => {
           <span></span>
           {/* <Image src="/g1725-black.svg" alt="" width={100} height={100} /> */}
 
-          <p>As melhores marcas você encontra aqui.</p>
+          {/* <p>As melhores marcas você encontra aqui.</p> */}
           {/* <TbTargetArrow size={50} /> */}
         </div>
         <LoginForm />

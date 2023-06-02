@@ -20,11 +20,12 @@ const HomePage = ({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const sliderImgs = [
-    "Tenis.jpg",
+    // "pexels-kaique-rocha-561652.jpg",
+    "brand-betterOne.gif",
+    // "pexels-luis-dalvan-1770813.jpg",
     // "truck.jpeg",
-    "truck1.png",
-    "Tenis.jpg",
-    "Tenis.jpg",
+    // "Tenis.jpg",
+    // "Tenis.jpg",
     // "Tenis.jpg",
     // "Tenis.jpg",
   ];
@@ -33,12 +34,11 @@ const HomePage = ({
     <>
       <Slider imageURLsList={sliderImgs}>
         <div className="add">
-          <Image src="/g1725-black.svg" alt="" width={100} height={100} />
-
-          <p>As melhores marcas você encontra aqui.</p>
-          <span>
-            <TbTargetArrow size={50} />
-          </span>
+          {/* <Image src="/g1725-black.svg" alt="" width={100} height={100} /> */}
+          {/* <p>
+            As melhores marcas do mundo <span>SKATEBOARD</span>
+          </p>
+          <p>você encontra aqui.</p> */}
         </div>
       </Slider>
       <Section>
