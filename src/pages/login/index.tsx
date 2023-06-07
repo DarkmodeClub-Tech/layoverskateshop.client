@@ -4,25 +4,10 @@ import LoginForm from "../../components/Forms/LoginForm";
 import Slider from "../../components/Slider";
 
 const LoginPage = () => {
-  const sliderImgs = [
-    "Tenis.jpg",
-    // "truck.jpeg",
-    "truck1.png",
-    "Tenis.jpg",
-    "Tenis.jpg",
-    // "Tenis.jpg",
-    // "Tenis.jpg",
-  ];
+  const sliderImgs = ["brand-betterOne.png"];
   return (
     <>
       <Slider imageURLsList={sliderImgs}>
-        <div className="add">
-          <span></span>
-          {/* <Image src="/g1725-black.svg" alt="" width={100} height={100} /> */}
-
-          {/* <p>As melhores marcas você encontra aqui.</p> */}
-          {/* <TbTargetArrow size={50} /> */}
-        </div>
         <LoginForm />
       </Slider>
     </>

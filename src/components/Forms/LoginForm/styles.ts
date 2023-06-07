@@ -6,7 +6,17 @@ export const Form = styled.form`
   align-items: center;
   justify-content: center;
 
-  background-color: var(--white-fixed);
+  /* background-color: var(--white-fixed); */
+
+  /* background: rgba(255, 255, 255, 0.2); */
+  background: #000000ff;
+  /* border-radius: 10px; */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--success-0);
+
   opacity: 0.9;
   width: 50%;
   /* margin-bottom: 20px; */
@@ -66,6 +76,8 @@ export const Form = styled.form`
         justify-content: center;
         width: 100%;
         height: 35px;
+
+        background: transparent;
       }
     }
 

@@ -24,10 +24,12 @@ const Header = () => {
         />
         <button type="submit">{<BiSearchAlt size={50} />}</button>
       </form>
-      <Link href="#">Sobre</Link>
-      <Link href="#">Contato</Link>
-      <Link href="#">Carrinho</Link>
-      <Link href="/login">Login</Link>
+      <section className="header-nav">
+        <Link href="#">Sobre</Link>
+        <Link href="#">Contato</Link>
+        <Link href="#">Carrinho</Link>
+        <Link href="/login">Login</Link>
+      </section>
     </StyledHeader>
   );
 };

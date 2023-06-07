@@ -9,30 +9,35 @@ import { Section } from "../components/Section/styles";
 import Slider from "../components/Slider";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { TProduct } from "../interfaces";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { ProductsContext } from "../contexts/product.context";
 
 export const getStaticProps = async () => {
-  const res = await fetch("https://lvr-server.onrender.com/products");
-  const products = await res.json();
+  const res = await axios.get("https://lvr-server.onrender.com/products", {
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "User-Agent": "*",
+    },
+  });
+  const products = res.data;
   return { props: { products } };
 };
 
 const HomePage = ({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { setProducts } = useContext(ProductsContext);
+  setProducts(products);
   const sliderImgs = [
     // "pexels-kaique-rocha-561652.jpg",
     "brand-betterOne.gif",
     // "pexels-luis-dalvan-1770813.jpg",
-    // "truck.jpeg",
-    // "Tenis.jpg",
-    // "Tenis.jpg",
-    // "Tenis.jpg",
-    // "Tenis.jpg",
   ];
-  console.log(products);
+
   return (
     <>
-      <Slider imageURLsList={sliderImgs}>
+      <Slider imageURLsList={sliderImgs} styles={{ height: "auto" }}>
         <div className="add">
           {/* <Image src="/g1725-black.svg" alt="" width={100} height={100} /> */}
           {/* <p>
