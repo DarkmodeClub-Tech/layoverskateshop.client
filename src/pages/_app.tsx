@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { GlobalStyle } from "../global/styles";
+import ProductsContextProvider from "../contexts/product.context";
 
 const inter = Inter({
   style: ["normal"],
@@ -14,10 +15,12 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <main className={inter.className}>
       <GlobalStyle />
-      <Header />
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
+      <ProductsContextProvider>
+        <Header />
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </ProductsContextProvider>
     </main>
   );
 }

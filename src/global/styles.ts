@@ -54,7 +54,8 @@ table {
 body{
   overflow-x:hidden ;
   background-color: #DEE2E6;
-  background-image: url("pexels-luis-dalvan-1770813.jpg");
+  background-image: url("bg-img.png");
+  background-size: cover;
 
   ::-webkit-scrollbar {
     display: flex;

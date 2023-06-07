@@ -39,7 +39,7 @@ export const SliderContainer = styled.section<ISliderAtributes>`
   background-color: var(--grey-9);
   overflow: hidden;
 
-  margin-top: 12vh;
+  /* margin-top: 12vh; */
 
   border-bottom: 1px solid var(--grey-4);
 

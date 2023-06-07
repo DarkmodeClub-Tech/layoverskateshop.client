@@ -10,15 +10,28 @@ export const StyledHeader = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 
   width: 100vw;
   height: 12vh;
 
-  background-color: var(--grey-0);
-  color: var(--white-fixed);
-  opacity: 0.9;
+  /* background-color: var(--grey-0); */
+  /* color: var(--white-fixed); */
+  background: rgba(10, 10, 10, 0.86);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
 
-  border-bottom: 1px solid var(--grey-2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+  .header-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 30%;
+  }
 
   .logo_container {
     display: flex;
@@ -27,9 +40,6 @@ export const StyledHeader = styled.header`
     justify-content: center;
 
     height: 100%;
-
-    margin: 20px;
-    /* padding: 5px; */
 
     font-size: 1.8rem;
     font-weight: 700;
