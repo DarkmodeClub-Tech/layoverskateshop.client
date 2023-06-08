@@ -39,16 +39,16 @@ export const SliderContainer = styled.section<ISliderAtributes>`
   background-color: var(--grey-9);
   overflow: hidden;
 
-  /* margin-top: 12vh; */
+  /* margin: auto;
+  margin-top: 20px; */
+  /* border-radius: 10px; */
 
   border-bottom: 1px solid var(--grey-4);
 
   background: rgba(255, 255, 255, 0.2);
-  /* border-radius: 10px; */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--orange);
 
   ul {
