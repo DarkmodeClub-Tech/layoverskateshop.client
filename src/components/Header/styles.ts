@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  position: fixed;
+  /* position: fixed;
   top: 0;
-  left: 0;
+  left: 0; */
   z-index: 99;
 
   display: flex;
@@ -13,7 +13,8 @@ export const StyledHeader = styled.header`
   flex-wrap: wrap;
 
   width: 100vw;
-  height: 12vh;
+  /* height: 12vh; */
+  height: auto;
 
   /* background-color: var(--grey-0); */
   /* color: var(--white-fixed); */
@@ -30,7 +31,7 @@ export const StyledHeader = styled.header`
     align-items: center;
     justify-content: space-evenly;
 
-    width: 30%;
+    width: 20%;
   }
 
   .logo_container {
@@ -58,8 +59,8 @@ export const StyledHeader = styled.header`
   }
 
   a {
-    display: block;
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 
@@ -97,8 +98,8 @@ export const StyledHeader = styled.header`
 
     background-color: var(--white-fixed);
 
-    width: 30%;
-    height: 40%;
+    width: 40%;
+    height: 40px;
 
     border-radius: 20px;
 
@@ -112,7 +113,7 @@ export const StyledHeader = styled.header`
       align-content: center;
       text-align: center;
 
-      width: 90%;
+      width: 85%;
       height: 100%;
 
       border: 1px solid transparent;
@@ -122,7 +123,7 @@ export const StyledHeader = styled.header`
       background-color: var(--grey-7);
 
       :focus {
-        border: 1px solid var(--yellow-2);
+        border: 1px solid var(--success-0);
         background-color: var(--white-fixed);
       }
     }
@@ -132,7 +133,7 @@ export const StyledHeader = styled.header`
       align-items: center;
       justify-content: center;
 
-      width: 10%;
+      width: 15%;
       height: 100%;
 
       border-radius: 0 20px 20px 0;
@@ -148,9 +149,25 @@ export const StyledHeader = styled.header`
       transition: 0.5s;
 
       :hover {
-        background-color: var(--yellow-2);
+        background-color: var(--success-0);
         color: var(--grey-0);
       }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    justify-content: space-evenly;
+
+    .logo_container {
+      font-size: 1.2rem;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    form {
+      width: 90%;
     }
   }
 `;

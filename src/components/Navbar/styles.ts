@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-  position: absolute;
-  top: 12vh;
+  /* position: absolute; */
+  /* top: 12vh; */
   /* padding-top: 12vh; */
   z-index: 98;
 
