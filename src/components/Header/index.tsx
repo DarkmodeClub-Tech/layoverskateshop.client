@@ -28,7 +28,7 @@ const Header = () => {
       </form>
       <section className="header-nav">
         <Link href="/login">
-          <FaUserAstronaut size={30} /> Login
+          <FaUserAstronaut size={30} /> Entrar
         </Link>
         <Link href="#">
           <MdOutlineShoppingCart size={30} />

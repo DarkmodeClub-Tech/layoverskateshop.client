@@ -23,7 +23,7 @@ export const StyledHeader = styled.header`
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.3);
 
   .header-nav {
     display: flex;
@@ -78,7 +78,7 @@ export const StyledHeader = styled.header`
 
     :hover {
       // color: var(--yellow-2);
-      color: var(--success-0);
+      color: var(--yellow-2);
 
       // text-decoration: underline;
 

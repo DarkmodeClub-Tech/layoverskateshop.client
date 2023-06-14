@@ -3,12 +3,13 @@ import styled from "styled-components";
 export const Section = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: initial;
 
   width: 90vw;
 
   margin: auto;
   margin-top: 50px;
+  overflow: hidden;
 
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
