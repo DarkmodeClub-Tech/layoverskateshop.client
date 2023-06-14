@@ -13,7 +13,8 @@ export const Nav = styled.nav`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  overflow-x: auto;
 
   width: 100%;
 
@@ -23,11 +24,8 @@ export const Nav = styled.nav`
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  color: var(--orange);
 
   a {
-    position: relative;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,7 +36,6 @@ export const Nav = styled.nav`
     /* background-color: var(--grey-0); */
     color: var(--white-fixed);
 
-    padding: 5px;
     margin: 5px 10px 5px 10px;
 
     font-size: 1rem;
@@ -66,6 +63,19 @@ export const Nav = styled.nav`
         align-items: center;
         width: 80%;
       }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    justify-content: flex-start;
+
+    a {
+      width: 100%;
+      margin: 0;
+      font-size: 0.9rem;
+      padding: 10px;
+      /* padding: 10px; */
+      /* padding-bottom: 5px; */
     }
   }
 `;

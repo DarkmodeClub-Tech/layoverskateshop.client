@@ -35,6 +35,8 @@ export const CardContainer = styled.div`
       justify-content: center;
       width: 100%;
       height: auto;
+
+      pointer-events: none;
     }
   }
   .product-dectails {

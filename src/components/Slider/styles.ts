@@ -29,6 +29,8 @@ export const SliderContainer = styled.section<ISliderAtributes>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 
   /* width: 100vw;
   height: 90vh; */
@@ -55,6 +57,7 @@ export const SliderContainer = styled.section<ISliderAtributes>`
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 
     width: 100%;
     height: 100%;
@@ -80,7 +83,7 @@ export const SliderContainer = styled.section<ISliderAtributes>`
         align-items: center;
         justify-content: center;
 
-        width: 100%;
+        width: 95%;
         object-fit: cover;
       }
     }
@@ -93,7 +96,6 @@ export const SliderContainer = styled.section<ISliderAtributes>`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     width: ${({ addContainerWidth }) =>
       addContainerWidth ? addContainerWidth : "80%"};
 

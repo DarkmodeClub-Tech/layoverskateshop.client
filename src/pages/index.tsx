@@ -2,7 +2,7 @@ import Image from "next/image";
 import { TbTargetArrow } from "react-icons/tb";
 
 // import { products } from "../assets/database";
-import List from "../components/List";
+import ProductsSection from "../components/ProductsSection";
 import LoginForm from "../components/Forms/LoginForm";
 import Navbar from "../components/Navbar";
 import { Section } from "../components/Section/styles";
@@ -30,54 +30,46 @@ const HomePage = ({
   const { setProducts } = useContext(ProductsContext);
   setProducts(products);
   const sliderImgs = [
-    // "pexels-kaique-rocha-561652.jpg",
-    "brand-betterOne.gif",
+    "pexels-kaique-rocha-561654.jpg",
+    // "brand-betterOne.png",
     // "pexels-luis-dalvan-1770813.jpg",
   ];
 
   return (
     <>
-      <Slider imageURLsList={sliderImgs} styles={{ height: "auto" }}>
-        <div className="add">
-          {/* <Image src="/g1725-black.svg" alt="" width={100} height={100} /> */}
-          {/* <p>
-            As melhores marcas do mundo <span>SKATEBOARD</span>
-          </p>
-          <p>você encontra aqui.</p> */}
-        </div>
-      </Slider>
-      <Section>
-        <List
-          title="Camisetas"
-          products={products.filter(
-            (p: TProduct) => p.category.title === "tshirt"
-          )}
-        />
-      </Section>
-      <Section>
-        <List
-          title="Shapes"
-          products={products.filter(
-            (p: TProduct) => p.category.title === "shape"
-          )}
-        />
-      </Section>
-      <Section>
-        <List
-          title="Rodas"
-          products={products.filter(
-            (p: TProduct) => p.category.title === "wheels"
-          )}
-        />
-      </Section>
-      <Section>
-        <List
-          title="Tênis"
-          products={products.filter(
-            (p: TProduct) => p.category.title === "shoes"
-          )}
-        />
-      </Section>
+      <Slider imageURLsList={sliderImgs} styles={{ height: "auto" }} />
+      <ProductsSection title="Todos" products={products} />
+      <ProductsSection
+        title="Camisetas"
+        products={products.filter(
+          (p: TProduct) => p.category.title === "tshirt"
+        )}
+      />
+      <ProductsSection
+        title="Shapes"
+        products={products.filter(
+          (p: TProduct) => p.category.title === "shape"
+        )}
+      />
+      <Slider
+        imageURLsList={[
+          "promo.jpg",
+          // "pexels-kaique-rocha-561654.jpg"
+        ]}
+        styles={{ height: "auto" }}
+      />
+      <ProductsSection
+        title="Rodas"
+        products={products.filter(
+          (p: TProduct) => p.category.title === "wheels"
+        )}
+      />
+      <ProductsSection
+        title="Tênis"
+        products={products.filter(
+          (p: TProduct) => p.category.title === "shoes"
+        )}
+      />
     </>
   );
 };

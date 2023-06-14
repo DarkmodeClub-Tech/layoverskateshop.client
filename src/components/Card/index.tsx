@@ -23,7 +23,7 @@ const Card = ({
         <h2 className="product-name">{title.slice(0, 20)}</h2>
         <p className="product-description">{description.slice(0, 100)}</p>
         <span className="product-price">
-          R$ {price} ou em até {max_installments}x
+          R$ <strong>{price}</strong> ou em até {max_installments}x
         </span>
         <div className="button-container">
           <button className="add-to-cart-button" type="button">
