@@ -13,15 +13,17 @@ const inter = Inter({
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={inter.className}>
+    <>
       <GlobalStyle />
       <ProductsContextProvider>
-        <Header />
-        <Navbar />
-        <Component {...pageProps} />
-        <Footer />
+        <main className={inter.className}>
+          <Header />
+          <Navbar />
+          <Component {...pageProps} />
+          <Footer />
+        </main>
       </ProductsContextProvider>
-    </main>
+    </>
   );
 }
 

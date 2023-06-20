@@ -10,19 +10,18 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
   // flex-wrap: wrap;
 
   /* height: 100%;*/
   max-height: 90vh;
   width: 45%;
-  // margin: 0 auto;
-  // margin-top: 20vh;
+  margin: 0 auto;
+  margin-top: 20px;
   padding-top: 20px;
 
-  border-right: 1px solid var(--grey-5);
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 10px;
   // box-shadow: 0px 4px 8px var(--grey-3);
 
   opacity: 0.9;

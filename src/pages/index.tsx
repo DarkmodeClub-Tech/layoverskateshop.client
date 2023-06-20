@@ -8,27 +8,32 @@ import Navbar from "../components/Navbar";
 import { Section } from "../components/Section/styles";
 import Slider from "../components/Slider";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { TProduct } from "../interfaces";
-import axios from "axios";
+import { TCategory, TProduct } from "../interfaces";
 import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../contexts/product.context";
+import { api } from "../services/api";
+import { TProductsResponse } from "../interfaces/products";
+import { TCategoriesResponse } from "../interfaces/category";
 
 export const getStaticProps = async () => {
-  const res = await axios.get("https://lvr-server.onrender.com/products", {
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      "User-Agent": "*",
-    },
-  });
-  const products = res.data;
-  return { props: { products } };
+  const { data: products }: TProductsResponse = await api.get("/products");
+  const { data: categories }: TCategoriesResponse = await api.get(
+    "/categories"
+  );
+  return { props: { products, categories } };
 };
 
 const HomePage = ({
   products,
+  categories,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { setProducts } = useContext(ProductsContext);
-  setProducts(products);
+  const { setProducts, setCategories } = useContext(ProductsContext);
+
+  useEffect(() => {
+    setProducts(products);
+    setCategories(categories);
+  }, []);
+
   const sliderImgs = [
     "pexels-kaique-rocha-561654.jpg",
     // "brand-betterOne.png",
