@@ -14,3 +14,7 @@ export type TProduct = {
   category: TCategory;
   photos: TPhoto[];
 };
+
+export type TProductsResponse = {
+  data: TProduct[];
+};

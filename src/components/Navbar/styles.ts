@@ -79,3 +79,70 @@ export const Nav = styled.nav`
     }
   }
 `;
+
+export const ProductListNav = styled.nav`
+  position: absolute;
+  z-index: 98;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: auto;
+  width: 100vw;
+
+  background-color: aliceblue;
+
+  /* background: rgba(10, 10, 10, 0.86); */
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    height: auto;
+
+    li {
+      display: flex;
+      flex-direction: row;
+      width: 80%;
+
+      overflow: hidden;
+
+      a {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        width: 300px;
+        color: lime;
+
+        figure {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+
+          min-width: 100px;
+          width: 100px;
+          min-height: 100px;
+          height: 100px;
+
+          margin-right: 10px;
+          border-radius: 5px;
+
+          img {
+            display: flex;
+            width: 120%;
+          }
+        }
+      }
+    }
+  }
+`;
