@@ -5,7 +5,7 @@ import { InferGetServerSidePropsType } from "next";
 import { api } from "../../services/api";
 import { ProductsContext } from "../../contexts/product.context";
 import { TCategoriesResponse, TCategory } from "../../interfaces/category";
-import { ProductComponent } from "../../components/ProductPage";
+import { ProductComponent } from "../../components/ProductComponent";
 
 export const getServerSideProps = async () => {
   const { data: products }: TProductsResponse = await api.get("/products");

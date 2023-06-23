@@ -8,6 +8,8 @@ export type TProduct = {
   max_installments: number;
   description: string;
   available: boolean;
+  available_colors: string[];
+  available_sizes: string[];
   stock_amount: number;
   created_at: Date;
   updated_at: Date;

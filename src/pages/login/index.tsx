@@ -4,13 +4,6 @@ import LoginForm from "../../components/Forms/LoginForm";
 import Slider from "../../components/Slider";
 
 const LoginPage = () => {
-  const sliderImgs = ["brand-betterOne.png"];
-  return (
-    <>
-      <Slider imageURLsList={sliderImgs}>
-        <LoginForm />
-      </Slider>
-    </>
-  );
+  return <LoginForm />;
 };
 export default LoginPage;
