@@ -6,27 +6,22 @@ export const Form = styled.form`
   align-items: center;
   justify-content: center;
 
-  /* background-color: var(--white-fixed); */
+  background-color: var(--white-fixed);
 
-  /* background: rgba(255, 255, 255, 0.2); */
-  background: #000000ff;
-  /* border-radius: 10px; */
+  border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: var(--success-0);
+  color: var(--orange);
 
   opacity: 0.9;
   width: 50%;
-  /* margin-bottom: 20px; */
-  /* margin: auto; */
+  margin: 20px auto;
 
-  /* margin-top: 20vh; */
   padding: 10px;
 
-  border-left: 1px solid var(--grey-5);
-  border-radius: 0 10px 10px 0;
+  border: 1px solid var(--grey-5);
+  border-radius: 10px;
 
   .register-user {
     display: flex;
@@ -74,10 +69,14 @@ export const Form = styled.form`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        font-size: 1rem;
         width: 100%;
         height: 35px;
 
         background: transparent;
+        outline: none;
+        border: 1px solid var(--grey-2);
       }
     }
 

@@ -7,7 +7,7 @@ export const ProductComponentContainer = styled.section`
   justify-content: center;
 
   width: 90%;
-  height: 150vh;
+  height: auto;
   margin: 10px auto;
 
   .image-list,
@@ -22,15 +22,6 @@ export const ProductComponentContainer = styled.section`
     width: 100%;
   }
 
-  .image-list {
-    justify-content: flex-start;
-
-    width: 10%;
-    height: 100%;
-    margin-right: 10px;
-    background-color: black;
-  }
-
   .bigger-figure {
     display: flex;
     flex-direction: column;
@@ -40,7 +31,7 @@ export const ProductComponentContainer = styled.section`
     width: 50%;
     height: auto;
     margin-right: 10px;
-    background-color: aliceblue;
+    background-color: var(--white-fixed);
   }
 
   .product-details-section {
@@ -49,10 +40,12 @@ export const ProductComponentContainer = styled.section`
     align-items: flex-start;
 
     width: 40%;
-    height: 400px;
+    height: auto;
+    padding-bottom: 10px;
     background-color: var(--white-fixed);
 
     .buy-product-button,
+    .add-to-cart-button,
     .product-category,
     .product-title,
     .product-installments,
@@ -70,7 +63,8 @@ export const ProductComponentContainer = styled.section`
     }
   }
 
-  .buy-product-button {
+  .buy-product-button,
+  .add-to-cart-button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,6 +79,43 @@ export const ProductComponentContainer = styled.section`
     padding: 10px;
     border: none;
     border-radius: 10px;
+
+    &:hover {
+      background-color: var(--grey-0);
+      color: var(--yellow-1);
+    }
+  }
+  .add-to-cart-button {
+    background-color: var(--success-2);
+    color: var(--success-1);
+    &:hover {
+    }
+  }
+  .label-sizes-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: auto;
+    margin: 10px 0 0 10px;
+    padding-left: 10px;
+    background-color: var(--grey-5);
+    border-radius: 10px;
+
+    select {
+      display: flex;
+      outline: none;
+      background-color: var(--yellow-1);
+      color: var(--grey-0);
+
+      border-radius: 10px;
+
+      option {
+        border-radius: 10px;
+      }
+    }
   }
 `;
 

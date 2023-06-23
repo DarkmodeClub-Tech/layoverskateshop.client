@@ -1,10 +1,37 @@
 import { Form } from "./styles";
+import { useForm } from "react-hook-form";
+
 import Image from "next/image";
 import Link from "next/link";
+import { z } from "zod";
 
 const LoginForm = () => {
+  const loginSchema = z.object({
+    email: z
+      .string()
+      .email("Insira um email válido")
+      .nonempty("O email é obrigatório"),
+    password: z
+      .string()
+      .min(6, "A senha deve conter pelo menos 6 caracteres")
+      .nonempty("A senha é obrigatória"),
+  });
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = (data) => {
+    // Aqui você pode fazer o que desejar com os dados do formulário
+    console.log(data);
+  };
+
   return (
-    <Form onSubmit={() => ""}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <Image src="/g1725-black.svg" alt="" width={60} height={60} />
       <fieldset>
         <legend>Login</legend>
@@ -28,3 +55,13 @@ const LoginForm = () => {
   );
 };
 export default LoginForm;
+function zodResolver(
+  schema: any
+):
+  | import("react-hook-form").Resolver<
+      import("react-hook-form").FieldValues,
+      any
+    >
+  | undefined {
+  throw new Error("Function not implemented.");
+}
