@@ -1,33 +1,45 @@
 import { Form } from "./styles";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import Image from "next/image";
 import Link from "next/link";
 import { z } from "zod";
+import { api } from "../../../services/api";
+
+const loginSchema = z.object({
+  email: z
+    .string()
+    .email("Insira um email válido")
+    .nonempty("O email é obrigatório"),
+  password: z
+    .string()
+    .min(8, "A senha deve conter pelo menos 8 caracteres")
+    .nonempty("A senha é obrigatória"),
+});
+
+export type TLoginRequest = z.infer<typeof loginSchema>;
 
 const LoginForm = () => {
-  const loginSchema = z.object({
-    email: z
-      .string()
-      .email("Insira um email válido")
-      .nonempty("O email é obrigatório"),
-    password: z
-      .string()
-      .min(6, "A senha deve conter pelo menos 6 caracteres")
-      .nonempty("A senha é obrigatória"),
-  });
-
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm({
-    resolver: zodResolver(schema),
+  } = useForm<TLoginRequest>({
+    resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit: SubmitHandler<TLoginRequest> = async (data) => {
     // Aqui você pode fazer o que desejar com os dados do formulário
     console.log(data);
+
+    const req = await api.post("/customers/auth", data);
+
+    const authentication = req.data;
+    localStorage.setItem(
+      "@lvrsk8shop-auth-token",
+      JSON.stringify(authentication.token)
+    );
   };
 
   return (
@@ -37,13 +49,23 @@ const LoginForm = () => {
         <legend>Login</legend>
         <label htmlFor="email">
           Email
-          <input type="text" id="email" placeholder="example@gmail.com" />
-          <span></span>
+          <input
+            type="text"
+            id="email"
+            placeholder="example@gmail.com"
+            {...register("email")}
+          />
+          <span> {errors && errors.email?.message}</span>
         </label>
         <label htmlFor="password">
           Senha
-          <input type="text" id="password" placeholder="********" />
-          <span></span>
+          <input
+            type="text"
+            id="password"
+            placeholder="********"
+            {...register("password")}
+          />
+          <span> {errors && errors.password?.message}</span>
         </label>
         <button type="submit"> Entrar</button>
       </fieldset>
@@ -55,13 +77,3 @@ const LoginForm = () => {
   );
 };
 export default LoginForm;
-function zodResolver(
-  schema: any
-):
-  | import("react-hook-form").Resolver<
-      import("react-hook-form").FieldValues,
-      any
-    >
-  | undefined {
-  throw new Error("Function not implemented.");
-}

@@ -3,10 +3,13 @@ import Link from "next/link";
 import { BiSearchAlt } from "react-icons/bi";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaUserAstronaut } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { StyledHeader } from "./styles";
+import { UserContext } from "../../contexts/user.context";
 
 const Header = () => {
+  const { user } = useContext(UserContext);
+
   const [searchFieldValue, setSearchFieldValue] = useState("");
   const [products, setProducts] = useState([]);
   return (
@@ -27,10 +30,18 @@ const Header = () => {
         <button type="submit">{<BiSearchAlt size={50} />}</button>
       </form>
       <section className="header-nav">
-        <Link href="/login">
-          <FaUserAstronaut size={30} /> Entrar
-        </Link>
-        <Link href="#">
+        {user.first_name ? (
+          <>
+            <FaUserAstronaut size={30} />
+            <h2>{user.first_name}</h2>
+          </>
+        ) : (
+          <Link href="/login">
+            <FaUserAstronaut size={30} />
+            Entrar
+          </Link>
+        )}
+        <Link href="/cart">
           <MdOutlineShoppingCart size={30} />
         </Link>
       </section>

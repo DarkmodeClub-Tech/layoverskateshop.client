@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { GlobalStyle } from "../global/styles";
 import ProductsContextProvider from "../contexts/product.context";
+import UserContextProvider from "../contexts/user.context";
 
 const inter = Inter({
   style: ["normal"],
@@ -15,14 +16,16 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <GlobalStyle />
-      <ProductsContextProvider>
-        <main className={inter.className}>
-          <Header />
-          <Navbar />
-          <Component {...pageProps} />
-          <Footer />
-        </main>
-      </ProductsContextProvider>
+      <UserContextProvider>
+        <ProductsContextProvider>
+          <main className={inter.className}>
+            <Header />
+            <Navbar />
+            <Component {...pageProps} />
+            <Footer />
+          </main>
+        </ProductsContextProvider>
+      </UserContextProvider>
     </>
   );
 }

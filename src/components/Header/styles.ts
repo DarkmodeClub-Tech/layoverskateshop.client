@@ -19,6 +19,8 @@ export const StyledHeader = styled.header`
   /* background-color: var(--grey-0); */
   /* color: var(--white-fixed); */
   background: rgba(10, 10, 10, 0.86);
+  color: var(--white-fixed);
+
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
@@ -32,6 +34,9 @@ export const StyledHeader = styled.header`
     justify-content: space-evenly;
 
     width: 20%;
+
+    a {
+    }
   }
 
   .logo_container {
