@@ -1,31 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
 import { api } from "../../services/api";
+import { UserContext } from "../../contexts/user.context";
+import { TCartProduct } from "../../interfaces";
 
 const CartPage = () => {
-  const [cartProducts, setCartProducts] = useState();
-  useEffect(() => {
-    const getToken = async () => {
-      const token = localStorage.getItem("@lvrsk8shop-token");
-
-      if (token) {
-        const res = await api.get("customers", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        setCartProducts(res.data.cart.products);
-      }
-    };
-    getToken();
-  }, []);
+  const { user, cart, setCart } = useContext(UserContext);
 
   return (
-    <ul>
-      {/* {cartProducts.map((cp) => {
-        return <li>{cp}</li>;
-      })} */}
-    </ul>
+    <>
+      {cart.products?.length > 0 ? (
+        <ul>
+          {cart.products.map((cp: TCartProduct) => {
+            return <li>{cp.product.title}</li>;
+          })}
+        </ul>
+      ) : (
+        <h1> Seu Carrinho está vazio!</h1>
+      )}
+    </>
   );
 };
 export default CartPage;
