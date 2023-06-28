@@ -2,9 +2,11 @@ import Link from "next/link";
 import { Nav, ProductListNav } from "./styles";
 import { useContext, useState } from "react";
 import { ProductsContext } from "../../contexts/product.context";
+import { UserContext } from "../../contexts/user.context";
 
 const Navbar = () => {
   const { products, categories } = useContext(ProductsContext);
+  const { isLoading, setIsLoading } = useContext(UserContext);
 
   const [category, setCategory] = useState("");
   const [showByCategory, setShowByCategory] = useState(false);
@@ -14,8 +16,8 @@ const Navbar = () => {
       <Nav>
         {categories.map((c) => {
           return (
-            <Link
-              href=""
+            <a
+              href="#"
               onMouseOverCapture={() => {
                 setShowByCategory(true);
                 setCategory(c.title);
@@ -23,7 +25,7 @@ const Navbar = () => {
               onMouseOutCapture={() => setShowByCategory(false)}
             >
               {c.title}
-            </Link>
+            </a>
           );
         })}
       </Nav>
@@ -38,7 +40,10 @@ const Navbar = () => {
               .map((p) => {
                 return (
                   <li key={p.id}>
-                    <Link href={`/${encodeURIComponent(p.id)}`}>
+                    <Link
+                      href={`/${encodeURIComponent(p.id)}`}
+                      onClick={() => setIsLoading(true)}
+                    >
                       <figure>
                         <img src={p.photos[0].url} alt="product photo" />
                       </figure>

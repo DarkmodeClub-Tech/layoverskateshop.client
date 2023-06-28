@@ -18,6 +18,8 @@ export interface IUserContext {
   setUser: Dispatch<SetStateAction<TUser>>;
   cart: TCart;
   setCart: Dispatch<SetStateAction<TCart>>;
+  isLoading: boolean;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 export const UserContext = createContext({} as IUserContext);
@@ -25,24 +27,24 @@ export const UserContext = createContext({} as IUserContext);
 const UserContextProvider = ({ children }: IProductProviderProps) => {
   const [user, setUser] = useState<TUser>({} as TUser);
   const [cart, setCart] = useState<TCart>({} as TCart);
-
-  const getUserdata = async (token: string) => {
-    const res = await api.get("/customers/retrieve", {
-      headers: { authorization: `Bearer ${token}` },
-    });
-    const user: TUser = res.data;
-
-    setUser(user);
-    setCart(cart);
-
-    return user;
-  };
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem("@lvrsk8shop-auth-token");
 
     if (token) {
       try {
+        const getUserdata = async (token: string) => {
+          const res = await api.get("/customers/retrieve", {
+            headers: { authorization: `Bearer ${token}` },
+          });
+          const user: TUser = res.data;
+
+          setUser(user);
+          setCart(cart);
+          console.log(user);
+          return user;
+        };
         getUserdata(JSON.parse(token));
       } catch (err) {
         console.error(err);
@@ -51,7 +53,9 @@ const UserContextProvider = ({ children }: IProductProviderProps) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser, cart, setCart }}>
+    <UserContext.Provider
+      value={{ user, setUser, cart, setCart, isLoading, setIsLoading }}
+    >
       {children}
     </UserContext.Provider>
   );

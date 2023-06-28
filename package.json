@@ -21,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.0",
     "react-icons": "^4.8.0",
+    "react-svg": "^16.1.17",
     "styled-components": "^5.3.9",
     "zod": "^3.21.4"
   },
