@@ -93,8 +93,8 @@ export const ProductListNav = styled.nav`
 
   background-color: aliceblue;
 
-  /* background: rgba(10, 10, 10, 0.86); */
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(10, 10, 10, 0.86);
+  /* background: rgba(255, 255, 255, 0.2); */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);

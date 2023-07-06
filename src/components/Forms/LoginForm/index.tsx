@@ -7,21 +7,13 @@ import Link from "next/link";
 import { z } from "zod";
 import { api } from "../../../services/api";
 import { setAuthToken } from "../../../services/cookies";
-
-const loginSchema = z.object({
-  email: z
-    .string()
-    .email("Insira um email válido")
-    .nonempty("O email é obrigatório"),
-  password: z
-    .string()
-    .min(8, "A senha deve conter pelo menos 8 caracteres")
-    .nonempty("A senha é obrigatória"),
-});
-
-export type TLoginRequest = z.infer<typeof loginSchema>;
+import { UserContext } from "../../../contexts/user.context";
+import { useContext } from "react";
+import { TLoginRequest } from "../../../interfaces/user";
+import { loginSchema } from "../../../schemas/user.schemas";
 
 const LoginForm = () => {
+  const { login } = useContext(UserContext);
   const {
     handleSubmit,
     register,
@@ -30,24 +22,8 @@ const LoginForm = () => {
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit: SubmitHandler<TLoginRequest> = async (data) => {
-    // Aqui você pode fazer o que desejar com os dados do formulário
-    console.log(data);
-
-    const req = await api.post("/customers/auth", data);
-
-    const authentication = req.data;
-
-    setAuthToken(authentication.token);
-
-    localStorage.setItem(
-      "@lvrsk8shop-auth-token",
-      JSON.stringify(authentication.token)
-    );
-  };
-
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(login)}>
       <Image src="/g1725-black.svg" alt="" width={60} height={60} />
       <fieldset>
         <legend>Login</legend>

@@ -1,5 +1,9 @@
+import { z } from "zod";
 import { TAddress } from "./address";
 import { TCart } from "./cart";
+import { loginSchema } from "../schemas/user.schemas";
+
+export type TLoginRequest = z.infer<typeof loginSchema>;
 
 export type TUser = {
   id: string;

@@ -44,7 +44,7 @@ const Header = () => {
           <button type="submit">{<BiSearchAlt size={50} />}</button>
         </form>
         <section className="header-nav">
-          {user.first_name ? (
+          {user && user?.first_name ? (
             <DropDownUserMenu />
           ) : (
             <Link href="/login" onClick={setIsLoadingTrue}>
