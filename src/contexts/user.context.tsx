@@ -8,6 +8,8 @@ import {
 } from "react";
 import { TProduct, TCategory, TUser, TCart } from "../interfaces";
 import { api } from "../services/api";
+import { getAuthToken } from "../services/cookies";
+import { AxiosError } from "axios";
 
 export interface IProductProviderProps {
   children: ReactNode;
@@ -32,25 +34,36 @@ const UserContextProvider = ({ children }: IProductProviderProps) => {
   useEffect(() => {
     const token = localStorage.getItem("@lvrsk8shop-auth-token");
 
+    let authToken = getAuthToken();
+
+    const getUserdata = async (token: string) => {
+      const res = await api.get("/customers/retrieve", {
+        headers: { authorization: `Bearer ${token}` },
+      });
+      const user: TUser = res.data;
+
+      setUser(user);
+      return user;
+    };
+
     if (token) {
       try {
-        const getUserdata = async (token: string) => {
-          const res = await api.get("/customers/retrieve", {
-            headers: { authorization: `Bearer ${token}` },
-          });
-          const user: TUser = res.data;
-
-          setUser(user);
-          setCart(cart);
-          console.log(user);
-          return user;
-        };
         getUserdata(JSON.parse(token));
+      } catch (err: any) {
+        console.error(err.data);
+      }
+    } else if (authToken) {
+      try {
+        getUserdata(authToken);
       } catch (err) {
         console.error(err);
       }
     }
   }, []);
+
+  useEffect(() => {
+    setCart(user.cart);
+  }, [user]);
 
   return (
     <UserContext.Provider

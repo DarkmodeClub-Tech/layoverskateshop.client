@@ -20,7 +20,6 @@ function App({ Component, pageProps }: AppProps) {
         <ProductsContextProvider>
           <main className={inter.className}>
             <Header />
-            <Navbar />
             <Component {...pageProps} />
             <Footer />
           </main>

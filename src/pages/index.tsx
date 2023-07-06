@@ -14,6 +14,8 @@ import { ProductsContext } from "../contexts/product.context";
 import { api } from "../services/api";
 import { TProductsResponse } from "../interfaces/products";
 import { TCategoriesResponse } from "../interfaces/category";
+import { LoadingElement } from "../components/LoadingElement";
+import { UserContext } from "../contexts/user.context";
 
 export const getStaticProps = async () => {
   const { data: products }: TProductsResponse = await api.get("/products");
@@ -28,10 +30,12 @@ const HomePage = ({
   categories,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { setProducts, setCategories } = useContext(ProductsContext);
+  const { isLoading, setIsLoading } = useContext(UserContext);
 
   useEffect(() => {
     setProducts(products);
     setCategories(categories);
+    setIsLoading(false);
   }, []);
 
   const sliderImgs = [
@@ -42,39 +46,45 @@ const HomePage = ({
 
   return (
     <>
-      <Slider imageURLsList={sliderImgs} styles={{ height: "auto" }} />
-      <ProductsSection title="Todos" products={products} />
-      <ProductsSection
-        title="Camisetas"
-        products={products.filter(
-          (p: TProduct) => p.category.title === "tshirt"
-        )}
-      />
-      <ProductsSection
-        title="Shapes"
-        products={products.filter(
-          (p: TProduct) => p.category.title === "shape"
-        )}
-      />
-      <Slider
-        imageURLsList={[
-          "promo.jpg",
-          // "pexels-kaique-rocha-561654.jpg"
-        ]}
-        styles={{ height: "auto" }}
-      />
-      <ProductsSection
-        title="Rodas"
-        products={products.filter(
-          (p: TProduct) => p.category.title === "wheels"
-        )}
-      />
-      <ProductsSection
-        title="Tênis"
-        products={products.filter(
-          (p: TProduct) => p.category.title === "shoes"
-        )}
-      />
+      {isLoading ? (
+        <LoadingElement />
+      ) : (
+        <>
+          <Slider imageURLsList={sliderImgs} styles={{ height: "auto" }} />
+          <ProductsSection title="Todos" products={products} />
+          <ProductsSection
+            title="Camisetas"
+            products={products.filter(
+              (p: TProduct) => p.category.title === "tshirt"
+            )}
+          />
+          <ProductsSection
+            title="Shapes"
+            products={products.filter(
+              (p: TProduct) => p.category.title === "shape"
+            )}
+          />
+          <Slider
+            imageURLsList={[
+              "promo.jpg",
+              // "pexels-kaique-rocha-561654.jpg"
+            ]}
+            styles={{ height: "auto" }}
+          />
+          <ProductsSection
+            title="Rodas"
+            products={products.filter(
+              (p: TProduct) => p.category.title === "wheels"
+            )}
+          />
+          <ProductsSection
+            title="Tênis"
+            products={products.filter(
+              (p: TProduct) => p.category.title === "shoes"
+            )}
+          />
+        </>
+      )}
     </>
   );
 };

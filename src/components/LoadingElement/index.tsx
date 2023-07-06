@@ -4,8 +4,9 @@ import { StyledLoadingContainer } from "./styles";
 export const LoadingElement = () => {
   return (
     <StyledLoadingContainer>
-      <img src="g10218.svg" />
-      {/* <h1>Carregando...</h1> */}
+      <img src="wheel.svg" className="wheel" alt="loading icon wheel" />
+      <img src="bearing.svg" className="bearing" alt="loading icon bearing" />
+      <img src="screw.svg" className="screw" alt="loading icon screw" />
     </StyledLoadingContainer>
   );
 };

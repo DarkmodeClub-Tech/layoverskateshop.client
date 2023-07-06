@@ -8,6 +8,7 @@ import {
 } from "react";
 import { TProduct, TCategory } from "../interfaces";
 import { api } from "../services/api";
+import useSWR from "swr";
 
 export interface IProductProviderProps {
   children: ReactNode;
@@ -26,14 +27,20 @@ const ProductsContextProvider = ({ children }: IProductProviderProps) => {
   const [products, setProducts] = useState<TProduct[]>([]);
   const [categories, setCategories] = useState<TCategory[]>([]);
 
+  const getProductsList = async (url: string) => {
+    try {
+      const { data } = await api.get(url);
+      return data;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  const { data, error } = useSWR("/products", getProductsList);
+
   useEffect(() => {
-    const getProductsList = async () => {
-      const res = await api.get("/products");
-      console.log(res.data, "CONTEXT");
-      setProducts(res.data);
-    };
-    getProductsList();
-  }, []);
+    setProducts(data);
+  }, [data, error]);
 
   return (
     <ProductsContext.Provider
