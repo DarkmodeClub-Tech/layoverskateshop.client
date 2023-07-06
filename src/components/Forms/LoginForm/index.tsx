@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { z } from "zod";
 import { api } from "../../../services/api";
+import { setAuthToken } from "../../../services/cookies";
 
 const loginSchema = z.object({
   email: z
@@ -36,6 +37,9 @@ const LoginForm = () => {
     const req = await api.post("/customers/auth", data);
 
     const authentication = req.data;
+
+    setAuthToken(authentication.token);
+
     localStorage.setItem(
       "@lvrsk8shop-auth-token",
       JSON.stringify(authentication.token)

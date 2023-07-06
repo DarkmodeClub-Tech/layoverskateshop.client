@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  /* position: fixed;
-  top: 0;
-  left: 0; */
-  /* z-index: 98; */
+  position: relative;
+  z-index: 9;
 
   display: flex;
   flex-direction: row;
@@ -13,11 +11,8 @@ export const StyledHeader = styled.header`
   flex-wrap: wrap;
 
   width: 100vw;
-  /* height: 12vh; */
   height: auto;
 
-  /* background-color: var(--grey-0); */
-  /* color: var(--white-fixed); */
   background: rgba(10, 10, 10, 0.86);
   color: var(--white-fixed);
 
@@ -36,6 +31,21 @@ export const StyledHeader = styled.header`
     width: 20%;
 
     a {
+      .cart-link-notification {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        background-color: red;
+        color: var(--white-fixed);
+
+        width: 20px;
+        height: 20px;
+
+        padding: 5px;
+        border-radius: 50%;
+      }
     }
   }
 
@@ -126,10 +136,12 @@ export const StyledHeader = styled.header`
       outline: none;
 
       background-color: var(--grey-7);
+      /* background: var(--grey-2); */
+      /* color: var(--grey-0); */
 
       :focus {
-        border: 1px solid var(--success-0);
-        background-color: var(--white-fixed);
+        border: 1px solid var(--success-1);
+        /* background-color: var(--white-fixed); */
       }
     }
     button {
@@ -143,7 +155,7 @@ export const StyledHeader = styled.header`
 
       border-radius: 0 20px 20px 0;
       border: 1px solid transparent;
-      border-left: 1px solid var(--grey-3);
+      /* border-left: 1px solid var(--grey-3); */
 
       padding-top: 5px;
       padding-bottom: 5px;
@@ -153,8 +165,10 @@ export const StyledHeader = styled.header`
 
       transition: 0.5s;
 
+      background: var(--grey-7);
+
       :hover {
-        background-color: var(--success-0);
+        background-color: var(--success-1);
         color: var(--grey-0);
       }
     }

@@ -3,6 +3,13 @@ import { TProduct } from "../../interfaces";
 import { DeliveryCalculatorForm, ProductComponentContainer } from "./styles";
 import ProductsSection from "../ProductsSection";
 import { ProductsContext } from "../../contexts/product.context";
+import {
+  TCart,
+  TCartProductObject,
+  TCartProductRequest,
+} from "../../interfaces/cart";
+import { api } from "../../services/api";
+import { UserContext } from "../../contexts/user.context";
 
 export type TProductPageProps = {
   product: TProduct;
@@ -11,7 +18,52 @@ export type TProductPageProps = {
 
 export const ProductComponent = ({ product, children }: TProductPageProps) => {
   const { products } = useContext(ProductsContext);
+  const { setCart } = useContext(UserContext);
   const [productImage, setProductImage] = useState(product.photos[0].url);
+
+  const [cartProducts, setCartProducts] = useState<TCartProductObject[]>([]);
+
+  const [amount, setAmount] = useState(1);
+  const [reqColors, setReqColors] = useState<string[]>([]);
+  const [reqSizes, setReqSizes] = useState<string[]>([]);
+
+  const getSelectedSize = () => {
+    const size = document.querySelector(
+      'input[name="size"]:checked'
+    ) as HTMLInputElement;
+
+    return size.value;
+  };
+
+  const getSelectedColor = () => {
+    const color = document.querySelector(
+      'input[name="color"]:checked'
+    ) as HTMLInputElement;
+
+    return color.value;
+  };
+
+  const addProductToCart = async (product_id: string) => {
+    const cartProduct = {
+      product_id: product_id,
+      amount: amount,
+      requested_sizes: [getSelectedSize()],
+      requested_colors: [getSelectedColor()],
+    };
+
+    setCartProducts((old_products) => [...old_products, cartProduct]);
+    console.log(cartProducts);
+
+    const cartReqData: TCartProductRequest = {
+      products: cartProducts,
+    };
+    const res = await api.post("/cart/products", cartReqData);
+
+    console.log(res.data);
+    const cart: TCart = res.data;
+    setCart(cart);
+  };
+
   return (
     <>
       <ProductComponentContainer>
@@ -40,20 +92,23 @@ export const ProductComponent = ({ product, children }: TProductPageProps) => {
               }
             )}
           </p>
-          <label className="label-sizes-field" htmlFor="sizes">
+          <fieldset className="fieldset-sizes-field" id="sizes">
             Tamanhos disponíveis:
-            <select name="sizes" id="sizes">
-              {product.available_sizes.map((pas) => (
-                <option defaultValue={pas}>{pas}</option>
-              ))}
-            </select>
-          </label>
-          {/* <span className="span-colors-field">
-      Cores disponíveis:
-      {product.available_colors.map((pas) => (
-        <span>{pas}</span>
-      ))}
-    </span> */}
+            {product.available_sizes.map((pas) => (
+              <label htmlFor={pas}>
+                {pas}
+                <input type="radio" name="size" value={pas} />
+              </label>
+            ))}
+            Cores disponíveis:
+            {product.available_colors.map((pac) => (
+              <label htmlFor={pac}>
+                {pac}
+                <input type="radio" name="color" value={pac} />
+              </label>
+            ))}
+          </fieldset>
+
           <DeliveryCalculatorForm className="calculate-delivery-form">
             <fieldset>
               <legend>Calcular Frete</legend>
@@ -65,7 +120,12 @@ export const ProductComponent = ({ product, children }: TProductPageProps) => {
             </fieldset>
           </DeliveryCalculatorForm>
           <button className="buy-product-button">Comprar agora</button>
-          <button className="add-to-cart-button">Adicionar ao Carrinho</button>
+          <button
+            className="add-to-cart-button"
+            onClick={() => addProductToCart(product.id)}
+          >
+            Adicionar ao Carrinho
+          </button>
         </section>
       </ProductComponentContainer>
       <ProductsSection

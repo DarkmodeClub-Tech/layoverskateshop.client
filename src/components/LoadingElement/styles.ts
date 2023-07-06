@@ -1,15 +1,16 @@
 import styled, { keyframes } from "styled-components";
 
-const tranformScaleAnimation = keyframes`
+const tranformScaleAndRotate360Animation = keyframes`
 0%{
     transform: rotate(0deg);
     
 }
 50%{
-    transform: rotate(180deg) scale(2.0);
+  transform: rotate(180deg) ;
+
 }
 100%{
-    transform: rotate(360deg) scale(1.0);
+    transform: rotate(360deg) ;
 }
 `;
 
@@ -27,23 +28,27 @@ export const StyledLoadingContainer = styled.div`
 
   background: rgba(10, 10, 10, 0.86);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(1.5px);
-  -webkit-backdrop-filter: blur(1.5px);
+  /* backdrop-filter: blur(1.5px); */
+  /* -webkit-backdrop-filter: blur(1.5px); */
   /* color: var(--white-fixed); */
 
   h1 {
     font-size: 2rem;
     color: var(--yellow-1);
   }
-  img {
-    animation: ${tranformScaleAnimation} infinite 1s;
-    transform: scale(1);
-    width: 100px;
-    height: 100px;
-    svg {
-      fill: red;
-      path {
-      }
-    }
+  .wheel {
+    animation: ${tranformScaleAndRotate360Animation} infinite 9ms linear;
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .bearing {
+    animation: ${tranformScaleAndRotate360Animation} infinite 9ms;
+
+    position: absolute;
+    border-radius: 50%;
+  }
+  .screw {
+    position: absolute;
   }
 `;

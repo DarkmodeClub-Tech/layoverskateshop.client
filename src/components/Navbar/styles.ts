@@ -4,10 +4,10 @@ export const Nav = styled.nav`
   /* position: absolute; */
   /* top: 12vh; */
   /* padding-top: 12vh; */
-  z-index: 98;
+  z-index: 7;
 
-  /* margin-bottom: 10vh; */
-  margin: auto;
+  /* margin-top: 14vh; */
+  /* margin: auto; */
 
   display: flex;
   flex-direction: row;
@@ -82,7 +82,7 @@ export const Nav = styled.nav`
 
 export const ProductListNav = styled.nav`
   position: absolute;
-  z-index: 98;
+  z-index: 8;
   display: flex;
   flex-direction: column;
   align-items: center;

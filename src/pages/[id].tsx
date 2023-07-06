@@ -24,7 +24,7 @@ const ProductPage = ({
   const router = useRouter();
   const { id } = router.query;
   const { setProducts, setCategories } = useContext(ProductsContext);
-  const { isLoading, setIsLoading } = useContext(UserContext);
+  const { isLoading, setIsLoading, setCart } = useContext(UserContext);
 
   const [filteredProducts, setFilteredProducts] = useState<TProduct[]>([]);
 
