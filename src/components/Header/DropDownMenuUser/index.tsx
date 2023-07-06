@@ -2,29 +2,39 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../../contexts/user.context";
 import Link from "next/link";
 import { StyledDiv, StyledNav } from "./styles";
-import { FaUserAstronaut } from "react-icons/fa";
-import { BiDownArrow } from "react-icons/bi";
+import { BiDownArrow, BiUpArrow } from "react-icons/bi";
+import { AiOutlineMenuUnfold, AiOutlineMenuFold } from "react-icons/ai";
 
 export const DropDownUserMenu = () => {
-  const { user } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
   const [showMenuOptions, setShowMenuOptions] = useState(false);
 
   return (
-    <StyledDiv>
-      <span
-        className="menu-header-title"
-        onMouseOverCapture={() => setShowMenuOptions(true)}
-      >
-        <FaUserAstronaut size={30} />
-        {user.first_name}
+    <StyledDiv
+      onMouseOverCapture={() => setShowMenuOptions(true)}
+      onMouseOut={() => setShowMenuOptions(false)}
+    >
+      <span className="menu-header-title">
+        <AiOutlineMenuUnfold size={30} />
+        {user && user?.first_name}
         <BiDownArrow size={20} />
       </span>
       {showMenuOptions ? (
-        <StyledNav>
+        <StyledNav
+          onMouseOverCapture={() => setShowMenuOptions(true)}
+          onMouseOut={() => setShowMenuOptions(false)}
+        >
+          <span className="menu-header-title">
+            <AiOutlineMenuFold size={30} />
+            {user && user?.first_name}
+            <BiUpArrow size={20} />
+          </span>
           <Link href="/updateProfile">Editar Perfil</Link>
           <Link href="/updateAddress">Editar Endereço</Link>
           <Link href="/orders">Meus Pedidos</Link>
-          <Link href="/">Sair</Link>
+          <Link href="/" onClick={() => logout()}>
+            Sair
+          </Link>
         </StyledNav>
       ) : (
         <></>
