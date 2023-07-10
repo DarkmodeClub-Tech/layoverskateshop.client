@@ -17,6 +17,7 @@ const Navbar = () => {
         {categories.map((c) => {
           return (
             <a
+              key={c.id}
               href="#"
               onMouseOverCapture={() => {
                 setShowByCategory(true);
@@ -43,11 +44,18 @@ const Navbar = () => {
                     <Link
                       href={`/${encodeURIComponent(p.id)}`}
                       onClick={() => setIsLoading(true)}
+                      className="product-link"
                     >
                       <figure>
                         <img src={p.photos[0].url} alt="product photo" />
                       </figure>
-                      <span>{p.title.slice(0, 20) + "..."}</span>
+                      <span className="title">{p.title.slice(0, 20)}</span>
+                      <p className="product-price">
+                        {Number(p?.price).toLocaleString("pt-BR", {
+                          currency: "BRL",
+                          style: "currency",
+                        })}
+                      </p>
                     </Link>
                   </li>
                 );

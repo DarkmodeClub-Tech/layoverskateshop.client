@@ -66,7 +66,7 @@ const HomePage = ({
           />
           <Slider
             imageURLsList={[
-              "promo.jpg",
+              "promo.png",
               // "pexels-kaique-rocha-561654.jpg"
             ]}
             styles={{ height: "auto" }}

@@ -13,10 +13,10 @@ import {
   removeAuthToken,
   setAuthToken,
 } from "../services/cookies";
-import { AxiosError } from "axios";
 import { SubmitHandler } from "react-hook-form";
 import { TLoginRequest } from "../interfaces/user";
 import { NextRouter, useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 export interface IProductProviderProps {
   children: ReactNode;
@@ -43,37 +43,24 @@ const UserContextProvider = ({ children }: IProductProviderProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const getUserdata = async (token: string) => {
-    const res = await api.get("/customers/retrieve", {
-      headers: { authorization: `Bearer ${token}` },
-    });
-    const user: TUser = res.data;
+    try {
+      const res = await api.get("/customers/retrieve", {
+        headers: { authorization: `Bearer ${token}` },
+      });
+      const user: TUser = res.data;
+      setUser(user);
 
-    setUser(user);
-    return user;
-  };
-  useEffect(() => {
-    const token = localStorage.getItem("@lvrsk8shop-auth-token");
+      toast.success(`Bem vindo ${user.first_name}`, { autoClose: 3000 });
 
-    let authToken = getAuthToken();
-
-    if (token) {
-      try {
-        getUserdata(JSON.parse(token));
-      } catch (err: any) {
-        console.error(err.data);
-      }
-    } else if (authToken) {
-      try {
-        getUserdata(authToken);
-      } catch (err) {
-        console.error(err);
+      return user;
+    } catch (err: any) {
+      if (err.response.data.error.message == "jwt expired") {
+        localStorage.removeItem("_lvrsk8shop-auth-token");
+        removeAuthToken();
+        toast.warn("Faça o login", { autoClose: 3000 });
       }
     }
-  }, []);
-
-  useEffect(() => {
-    setCart(user && user.cart);
-  }, [user]);
+  };
 
   const login: SubmitHandler<TLoginRequest> = async (data) => {
     setIsLoading(true);
@@ -85,7 +72,7 @@ const UserContextProvider = ({ children }: IProductProviderProps) => {
     setAuthToken(authentication.token);
 
     localStorage.setItem(
-      "@lvrsk8shop-auth-token",
+      "_lvrsk8shop-auth-token",
       JSON.stringify(authentication.token)
     );
 
@@ -94,10 +81,23 @@ const UserContextProvider = ({ children }: IProductProviderProps) => {
   };
 
   const logout = () => {
-    localStorage.removeItem("@lvrsk8shop-auth-token");
+    localStorage.removeItem("_lvrsk8shop-auth-token");
     removeAuthToken();
+    toast.success(`Até mais ${user?.first_name}`, { autoClose: 3000 });
     setUser(null);
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("_lvrsk8shop-auth-token");
+    let authToken = getAuthToken();
+
+    if (token) getUserdata(JSON.parse(token));
+    else if (authToken) getUserdata(authToken);
+  }, []);
+
+  useEffect(() => {
+    if (user) setCart(user.cart);
+  }, [user]);
 
   return (
     <UserContext.Provider

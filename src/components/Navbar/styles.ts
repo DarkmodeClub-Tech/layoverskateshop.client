@@ -104,7 +104,9 @@ export const ProductListNav = styled.nav`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 5px;
+
     width: 100%;
     height: auto;
 
@@ -113,36 +115,47 @@ export const ProductListNav = styled.nav`
       flex-direction: row;
       width: 80%;
 
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+
+      overflow: hidden;
+    }
+  }
+
+  .product-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 20px;
+
+    min-width: 300px;
+    width: 100%;
+
+    color: lime;
+
+    figure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
 
-      a {
+      min-width: 100px;
+      width: 100px;
+      min-height: 100px;
+      height: 100px;
+
+      margin-right: 10px;
+      border-radius: 5px;
+
+      img {
         display: flex;
-        flex-direction: row;
-        justify-content: left;
-        width: 300px;
-        color: lime;
-
-        figure {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-
-          min-width: 100px;
-          width: 100px;
-          min-height: 100px;
-          height: 100px;
-
-          margin-right: 10px;
-          border-radius: 5px;
-
-          img {
-            display: flex;
-            width: 120%;
-          }
-        }
+        width: 120%;
       }
     }
+  }
+  .product-price {
+    color: var(--white-fixed);
   }
 `;

@@ -5,6 +5,7 @@ export const ProductComponentContainer = styled.section`
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  flex-wrap: wrap;
 
   width: 90%;
   height: auto;
@@ -30,6 +31,7 @@ export const ProductComponentContainer = styled.section`
 
     width: 50%;
     height: auto;
+
     margin-right: 10px;
     background-color: var(--white-fixed);
   }
@@ -41,6 +43,7 @@ export const ProductComponentContainer = styled.section`
 
     width: 40%;
     height: auto;
+
     padding-bottom: 10px;
     background-color: var(--white-fixed);
 
