@@ -6,6 +6,11 @@ import Navbar from "../components/Navbar";
 import { GlobalStyle } from "../global/styles";
 import ProductsContextProvider from "../contexts/product.context";
 import UserContextProvider from "../contexts/user.context";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+// minified version is also included
+// import 'react-toastify/dist/ReactToastify.min.css';
 
 const inter = Inter({
   style: ["normal"],
@@ -22,6 +27,7 @@ function App({ Component, pageProps }: AppProps) {
             <Header />
             <Component {...pageProps} />
             <Footer />
+            <ToastContainer theme="dark" />
           </main>
         </ProductsContextProvider>
       </UserContextProvider>
