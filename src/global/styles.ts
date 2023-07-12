@@ -26,6 +26,22 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+
+  ::-webkit-scrollbar {
+    display: flex;
+    width: 12px;
+    background:transparent;;
+    padding: 2px;
+}
+::-webkit-scrollbar-thumb {
+  display: flex;
+
+  background: var(--grey-4);
+  border-radius:6px;
+  margin: 2px;
+  border: 2px solid var(--grey-6);
+}
+
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 

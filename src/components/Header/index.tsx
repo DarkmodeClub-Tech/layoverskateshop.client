@@ -8,6 +8,7 @@ import { StyledHeader } from "./styles";
 import { UserContext } from "../../contexts/user.context";
 import { DropDownUserMenu } from "./DropDownMenuUser";
 import Navbar from "../Navbar";
+import { SearchField } from "./SearchField";
 
 const Header = () => {
   const { user, cart, isLoading, setIsLoading } = useContext(UserContext);
@@ -32,25 +33,19 @@ const Header = () => {
           <Image src="/g1725.svg" alt="" width={100} height={100} />
           <span>Layover Skateshop</span>
         </Link>
-        <form onSubmit={() => ""}>
-          <label htmlFor="search">Pesquise o que deseja</label>
-          <input
-            placeholder="Pesquise o que deseja"
-            onChange={(event) => setSearchFieldValue(event.target.value)}
-            type="text"
-            name="search"
-            id="search"
-          />
-          <button type="submit">{<BiSearchAlt size={50} />}</button>
-        </form>
+        <SearchField />
         <section className="header-nav">
           {user && user?.first_name ? (
             <DropDownUserMenu />
           ) : (
-            <Link href="/login" onClick={setIsLoadingTrue}>
-              <FaUserAstronaut size={30} />
-              Entrar
-            </Link>
+            <>
+              <Link href="/login" onClick={setIsLoadingTrue}>
+                Entrar
+              </Link>
+              <Link href="/register_user" onClick={setIsLoadingTrue}>
+                Cadastrar
+              </Link>
+            </>
           )}
           <Link href="/cart" onClick={setIsLoadingTrue}>
             <MdOutlineShoppingCart size={30} />
