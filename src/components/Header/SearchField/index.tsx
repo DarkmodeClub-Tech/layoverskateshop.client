@@ -28,7 +28,10 @@ export const SearchField = () => {
   };
 
   return (
-    <StyledContainerDiv onMouseOut={() => setIsSearching(false)}>
+    <StyledContainerDiv
+      onMouseOverCapture={() => setIsSearching(true)}
+      onMouseOut={() => setIsSearching(false)}
+    >
       <StyledForm onSubmit={(event) => ""}>
         <label htmlFor="search">Pesquise o que deseja</label>
         <input

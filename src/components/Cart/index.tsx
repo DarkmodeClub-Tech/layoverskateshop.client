@@ -13,7 +13,7 @@ export const Cart = () => {
 
   const [products, setProducts] = useState<TCartProduct[]>([]);
   useEffect(() => {
-    setProducts(cart?.products);
+    if (cart && cart?.products.length > 0) setProducts(cart.products);
   }, [cart]);
 
   return (
