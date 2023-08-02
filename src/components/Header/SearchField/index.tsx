@@ -7,36 +7,50 @@ import Link from "next/link";
 
 export const SearchField = () => {
   const [isSearching, setIsSearching] = useState<boolean>(false);
-  const { products } = useContext(ProductsContext);
+  const [query, setQuery] = useState<string | null>(null);
+  const { products, getProductsList } = useContext(ProductsContext);
   const [foundProducts, setFoundProducts] = useState<TProduct[]>([]);
 
-  const searchProductsByTitle = (event: ChangeEvent<HTMLInputElement>) => {
+  const searchProductsByTitleOrDescription = (search: string) => {
+    const p = products.filter((p) => {
+      const productTitle = p.title.split(" ").join("")?.toLowerCase();
+      const productDescription = p.description.toLowerCase().split(" ");
+
+      return (
+        productDescription.includes(search) ||
+        productTitle.includes(search.toLowerCase())
+      );
+    });
+
+    if (p.length > 0) setFoundProducts(p);
+    else setFoundProducts([]);
+  };
+
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
+    setQuery(event.target.value);
+    setIsSearching(true);
 
     setTimeout(() => {
-      setIsSearching(true);
-      const p = products.filter((p) => {
-        const searchFieldValue = event.target.value;
-        const productTitle = p.title.split(" ").join("")?.toLowerCase();
-        console.log(searchFieldValue);
-
-        return productTitle.includes(searchFieldValue.toLowerCase());
-      });
-      if (p.length > 0) setFoundProducts(p);
-      else setFoundProducts([]);
+      if (query) searchProductsByTitleOrDescription(query);
     }, 400);
   };
 
+  const onSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = await getProductsList(`/products?search=${query}`);
+    if (data && data.length) setFoundProducts(data);
+  };
   return (
     <StyledContainerDiv
       onMouseOverCapture={() => setIsSearching(true)}
       onMouseOut={() => setIsSearching(false)}
     >
-      <StyledForm onSubmit={(event) => ""}>
+      <StyledForm onSubmit={(event) => onSubmitHandler(event)}>
         <label htmlFor="search">Pesquise o que deseja</label>
         <input
           placeholder="Pesquise o que deseja"
-          onChange={(event) => searchProductsByTitle(event)}
+          onChange={(event) => onChangeHandler(event)}
           type="text"
           name="search"
           id="search"
@@ -49,6 +63,7 @@ export const SearchField = () => {
             <li key={p.id}>
               <Link href={`/${p.id}`}>
                 <figure className="product-figure">
+                  {/* eslint-disable-next-line @next/next/no-img-element*/}
                   <img
                     src={p.photos[0].url}
                     alt="product photo"
