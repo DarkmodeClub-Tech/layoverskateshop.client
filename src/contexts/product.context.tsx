@@ -19,6 +19,7 @@ export interface IProductsContext {
   setProducts: Dispatch<SetStateAction<TProduct[]>>;
   categories: TCategory[];
   setCategories: Dispatch<SetStateAction<TCategory[]>>;
+  getProductsList: (url: string) => Promise<any>;
 }
 
 export const ProductsContext = createContext({} as IProductsContext);
@@ -36,7 +37,7 @@ const ProductsContextProvider = ({ children }: IProductProviderProps) => {
     }
   };
 
-  const { data, error } = useSWR("/products", getProductsList);
+  const { data, error } = useSWR(`/products`, getProductsList);
 
   useEffect(() => {
     setProducts(data);
@@ -44,7 +45,13 @@ const ProductsContextProvider = ({ children }: IProductProviderProps) => {
 
   return (
     <ProductsContext.Provider
-      value={{ products, setProducts, categories, setCategories }}
+      value={{
+        products,
+        setProducts,
+        categories,
+        setCategories,
+        getProductsList,
+      }}
     >
       {children}
     </ProductsContext.Provider>
