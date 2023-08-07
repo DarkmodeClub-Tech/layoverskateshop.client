@@ -93,14 +93,16 @@ export const ProductComponent = ({ product, children }: TProductPageProps) => {
             )}
           </p>
           <fieldset className="fieldset-sizes-field" id="sizes">
-            Tamanhos disponíveis:
+            <legend>Tamanhos disponíveis:</legend>
             {product.available_sizes.map((pas) => (
               <label htmlFor={pas} key={pas}>
                 {pas}
                 <input type="radio" name="size" value={pas} />
               </label>
             ))}
-            Cores disponíveis:
+          </fieldset>
+          <fieldset className="fieldset-colors-field" id="colors">
+            <legend>Cores disponíveis:</legend>
             {product.available_colors.map((pac) => (
               <label htmlFor={pac} key={pac}>
                 {pac}
@@ -108,7 +110,6 @@ export const ProductComponent = ({ product, children }: TProductPageProps) => {
               </label>
             ))}
           </fieldset>
-
           <DeliveryCalculatorForm className="calculate-delivery-form">
             <fieldset>
               <legend>Calcular Frete</legend>
@@ -119,8 +120,11 @@ export const ProductComponent = ({ product, children }: TProductPageProps) => {
               <button type="submit">Calcular</button>
             </fieldset>
           </DeliveryCalculatorForm>
-          <button className="buy-product-button">Comprar agora</button>
+          <button type="button" className="buy-product-button">
+            Comprar agora
+          </button>
           <button
+            type="button"
             className="add-to-cart-button"
             onClick={() => addProductToCart(product.id)}
           >
