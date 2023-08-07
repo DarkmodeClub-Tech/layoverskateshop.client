@@ -95,14 +95,14 @@ export const ProductComponent = ({ product, children }: TProductPageProps) => {
           <fieldset className="fieldset-sizes-field" id="sizes">
             Tamanhos disponíveis:
             {product.available_sizes.map((pas) => (
-              <label htmlFor={pas}>
+              <label htmlFor={pas} key={pas}>
                 {pas}
                 <input type="radio" name="size" value={pas} />
               </label>
             ))}
             Cores disponíveis:
             {product.available_colors.map((pac) => (
-              <label htmlFor={pac}>
+              <label htmlFor={pac} key={pac}>
                 {pac}
                 <input type="radio" name="color" value={pac} />
               </label>
