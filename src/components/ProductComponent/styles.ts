@@ -32,7 +32,7 @@ export const ProductComponentContainer = styled.section`
     width: 50%;
     height: auto;
 
-    margin-right: 10px;
+    /* margin-right: 10px; */
     background-color: var(--white-fixed);
   }
 
@@ -61,9 +61,16 @@ export const ProductComponentContainer = styled.section`
     }
 
     .product-price {
+      display: flex;
       font-size: 4rem;
       color: var(--success-1);
     }
+  }
+
+  .fieldset-sizes-field,
+  .fieldset-colors-field {
+    margin-left: 10px;
+    margin-top: 10px;
   }
 
   .buy-product-button,
@@ -118,6 +125,19 @@ export const ProductComponentContainer = styled.section`
       option {
         border-radius: 10px;
       }
+    }
+  }
+  @media screen and (max-width: 660px) {
+    width: 100%;
+
+    .bigger-figure {
+      width: 100%;
+    }
+    .product-details-section {
+      width: 100%;
+    }
+    .product-price {
+      font-size: 2em;
     }
   }
 `;
