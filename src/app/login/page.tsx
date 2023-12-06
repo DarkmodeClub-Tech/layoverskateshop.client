@@ -1,3 +1,4 @@
+"use client";
 import { useContext, useEffect } from "react";
 import LoginForm from "../../components/Forms/LoginForm";
 import { UserContext, useUserContext } from "../../app/contexts/user";
