@@ -2,7 +2,7 @@ import Link from "next/link";
 import { TCart, TCartProduct } from "../../interfaces";
 import { CartContainerSection } from "./styles";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../contexts/user.context";
+import { UserContext } from "../../app/contexts/user";
 
 type TCartProps = {
   cart: TCart;

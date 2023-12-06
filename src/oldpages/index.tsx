@@ -10,12 +10,12 @@ import Slider from "../components/Slider";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { TCategory, TProduct } from "../interfaces";
 import { useContext, useEffect, useState } from "react";
-import { ProductsContext } from "../contexts/product.context";
+import { ProductsContext } from "../app/contexts/product";
 import { api } from "../services/api";
 import { TProductsResponse } from "../interfaces/products";
 import { TCategoriesResponse } from "../interfaces/category";
 import { LoadingElement } from "../components/LoadingElement";
-import { UserContext } from "../contexts/user.context";
+import { UserContext } from "../app/contexts/user";
 
 export const getStaticProps = async () => {
   const { data: products }: TProductsResponse = await api.get("/products");
@@ -50,7 +50,7 @@ const HomePage = ({
         <LoadingElement />
       ) : (
         <>
-          <Slider imageURLsList={sliderImgs} styles={{ height: "auto" }} />
+          <Slider photos={sliderImgs} styles={{ height: "auto" }} />
           <ProductsSection title="Todos" products={products} />
           <ProductsSection
             title="Camisetas"
@@ -65,7 +65,7 @@ const HomePage = ({
             )}
           />
           <Slider
-            imageURLsList={[
+            photos={[
               "promo.png",
               // "pexels-kaique-rocha-561654.jpg"
             ]}

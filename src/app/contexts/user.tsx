@@ -1,46 +1,46 @@
+"use client";
+
 import {
   Dispatch,
   ReactNode,
   SetStateAction,
   createContext,
+  useContext,
   useEffect,
   useState,
 } from "react";
-import { TProduct, TCategory, TUser, TCart } from "../interfaces";
-import { api } from "../services/api";
+import { TProduct, TCategory, TUser, TCart } from "../../interfaces";
+import { api } from "../../services/api";
 import {
   getAuthToken,
   removeAuthToken,
   setAuthToken,
-} from "../services/cookies";
+} from "../../services/cookies";
 import { SubmitHandler } from "react-hook-form";
-import { TLoginRequest } from "../interfaces/user";
-import { NextRouter, useRouter } from "next/router";
+import { TLoginRequest } from "../../interfaces/user";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-
-export interface IProductProviderProps {
-  children: ReactNode;
-}
+import { NextRouter } from "next/router";
 
 export interface IUserContext {
-  router: NextRouter;
+  isOpenHeaderDropDownMenu: boolean;
+  setIsOpenHeaderDropDownMenu: Dispatch<SetStateAction<boolean>>;
   user: TUser | null;
   setUser: Dispatch<SetStateAction<TUser | null>>;
   cart: TCart | null;
   setCart: Dispatch<SetStateAction<TCart | null>>;
-  isLoading: boolean;
-  setIsLoading: Dispatch<SetStateAction<boolean>>;
   login: SubmitHandler<TLoginRequest>;
   logout: () => void;
 }
 
 export const UserContext = createContext({} as IUserContext);
 
-const UserContextProvider = ({ children }: IProductProviderProps) => {
-  const router: NextRouter = useRouter();
+export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<TUser | null>(null);
   const [cart, setCart] = useState<TCart | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isOpenHeaderDropDownMenu, setIsOpenHeaderDropDownMenu] =
+    useState<boolean>(false);
+  const { push } = useRouter();
 
   const getUserdata = async (token: string) => {
     try {
@@ -63,8 +63,6 @@ const UserContextProvider = ({ children }: IProductProviderProps) => {
   };
 
   const login: SubmitHandler<TLoginRequest> = async (data) => {
-    setIsLoading(true);
-
     const req = await api.post("/customers/auth", data);
 
     const authentication = req.data;
@@ -77,7 +75,7 @@ const UserContextProvider = ({ children }: IProductProviderProps) => {
     );
 
     getUserdata(authentication.token);
-    router.push("/");
+    push("/");
   };
 
   const logout = () => {
@@ -102,13 +100,12 @@ const UserContextProvider = ({ children }: IProductProviderProps) => {
   return (
     <UserContext.Provider
       value={{
-        router,
+        isOpenHeaderDropDownMenu,
+        setIsOpenHeaderDropDownMenu,
         user,
         setUser,
         cart,
         setCart,
-        isLoading,
-        setIsLoading,
         login,
         logout,
       }}
@@ -117,4 +114,5 @@ const UserContextProvider = ({ children }: IProductProviderProps) => {
     </UserContext.Provider>
   );
 };
-export default UserContextProvider;
+
+export const useUserContext = () => useContext(UserContext);

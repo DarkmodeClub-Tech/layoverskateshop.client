@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import { api } from "../../services/api";
-import { UserContext } from "../../contexts/user.context";
+import { UserContext } from "../../app/contexts/user";
 import { TCartProduct } from "../../interfaces";
 import { LoadingElement } from "../../components/LoadingElement";
 import { Cart } from "../../components/Cart";

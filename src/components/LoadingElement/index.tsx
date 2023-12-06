@@ -1,4 +1,5 @@
-import { ReactSVG } from "react-svg";
+"use client";
+
 import { StyledLoadingContainer } from "./styles";
 
 export const LoadingElement = () => {

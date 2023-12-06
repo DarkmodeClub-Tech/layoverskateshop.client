@@ -56,6 +56,8 @@ export const CardContainer = styled.div`
 
     font-size: 1.3rem;
     font-weight: 500;
+
+    color: var(--grey-0);
   }
 
   .product-description {
@@ -96,7 +98,7 @@ export const CardContainer = styled.div`
     font-size: 0.9rem;
 
     transition: 1s;
-    :hover {
+    &:hover {
       background-color: var(--orange);
     }
   }

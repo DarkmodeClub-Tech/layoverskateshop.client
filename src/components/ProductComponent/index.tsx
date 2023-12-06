@@ -1,15 +1,17 @@
+"use client";
+
 import { ReactNode, useContext, useState } from "react";
 import { TProduct } from "../../interfaces";
 import { DeliveryCalculatorForm, ProductComponentContainer } from "./styles";
 import ProductsSection from "../ProductsSection";
-import { ProductsContext } from "../../contexts/product.context";
+import { ProductsContext } from "../../app/contexts/product";
 import {
   TCart,
   TCartProductObject,
   TCartProductRequest,
 } from "../../interfaces/cart";
 import { api } from "../../services/api";
-import { UserContext } from "../../contexts/user.context";
+import { UserContext } from "../../app/contexts/user";
 
 export type TProductPageProps = {
   product: TProduct;

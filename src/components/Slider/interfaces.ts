@@ -1,3 +1,4 @@
+import { TPhoto } from "@/interfaces";
 import { ReactNode } from "react";
 
 export interface ISliderAtributes {
@@ -10,7 +11,7 @@ export interface ISliderAtributes {
 }
 
 export interface ISliderProps {
-  imageURLsList?: string[];
+  photos: TPhoto[];
   styles?: ISliderAtributes;
   children?: ReactNode;
 }
