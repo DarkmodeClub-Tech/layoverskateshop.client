@@ -1,63 +1,44 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { BiSearchAlt } from "react-icons/bi";
-import { MdOutlineShoppingCart } from "react-icons/md";
-import { FaUserAstronaut } from "react-icons/fa";
-import { useContext, useEffect, useState } from "react";
 import { StyledHeader } from "./styles";
-import { UserContext } from "../../contexts/user.context";
-import { DropDownUserMenu } from "./DropDownMenuUser";
 import Navbar from "../Navbar";
 import { SearchField } from "./SearchField";
+import { TCategory, TProduct, TUser } from "@/interfaces";
+import { MenuNav } from "./MenuNav";
+import { MdOutlineShoppingCart } from "react-icons/md";
 
-const Header = () => {
-  const { user, cart, isLoading, setIsLoading } = useContext(UserContext);
-
-  const [searchFieldValue, setSearchFieldValue] = useState("");
-  const [cartProductsNumber, setCartProductsNumber] = useState(
-    cart?.products?.length
-  );
-
-  const setIsLoadingTrue = () => {
-    setIsLoading(true);
-  };
-
-  useEffect(() => {
-    setCartProductsNumber(cart?.products?.length);
-  }, [cart]);
+const Header = ({
+  user,
+  products,
+  categories,
+}: {
+  user?: TUser;
+  products: TProduct[];
+  categories: TCategory[];
+}) => {
+  const cartProductsAmount = user?.cart.products.length;
 
   return (
     <>
       <StyledHeader>
-        <Link href="/" className="logo_container" onClick={setIsLoadingTrue}>
+        <Link href="/" className="logo_container">
           <Image src="/g1725.svg" alt="" width={100} height={100} />
           <span>Layover Skateshop</span>
         </Link>
-        <SearchField />
-        <section className="header-nav">
-          {user && user?.first_name ? (
-            <DropDownUserMenu />
-          ) : (
-            <>
-              <Link href="/login" onClick={setIsLoadingTrue}>
-                Entrar
-              </Link>
-              <Link href="/register_user" onClick={setIsLoadingTrue}>
-                Cadastrar
-              </Link>
-            </>
-          )}
-          <Link href="/cart" onClick={setIsLoadingTrue}>
-            <MdOutlineShoppingCart size={30} />
-            {cartProductsNumber && (
-              <span className="cart-link-notification">
-                {cartProductsNumber}
-              </span>
-            )}
-          </Link>
-        </section>
+        <SearchField products={products} />
+
+        {user ? (
+          <MenuNav key={user.id} user={user} />
+        ) : (
+          <Link href="/login">Login</Link>
+        )}
+        <Link href="/cart">
+          <MdOutlineShoppingCart size={30} />
+          <span className="cart-link-notification">{cartProductsAmount}</span>
+        </Link>
       </StyledHeader>
-      <Navbar />
     </>
   );
 };

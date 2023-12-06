@@ -29,11 +29,11 @@ export const SliderContainer = styled.section<ISliderAtributes>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  /* padding-top: 20px;
+  padding-bottom: 20px; */
 
-  /* width: 100vw;
-  height: 90vh; */
+  width: 100vw;
+  height: 100vh;
 
   width: ${({ width }) => (width ? width : "100vw")};
   height: ${({ height }) => (height ? height : "90vh")};
@@ -57,7 +57,7 @@ export const SliderContainer = styled.section<ISliderAtributes>`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     width: 100%;
     height: 100%;
@@ -83,7 +83,7 @@ export const SliderContainer = styled.section<ISliderAtributes>`
         align-items: center;
         justify-content: center;
 
-        width: 95%;
+        width: 100%;
         object-fit: cover;
       }
     }
@@ -146,7 +146,7 @@ export const SliderContainer = styled.section<ISliderAtributes>`
     }
   }
 
-  /* .button-container {
+  .button-container {
     position: absolute;
     z-index: 99;
 
@@ -162,29 +162,33 @@ export const SliderContainer = styled.section<ISliderAtributes>`
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border-radius: 10px;
 
-      padding-left: 5px;
-      padding-right: 5px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      outline: none;
+      width: auto;
+      height: auto;
+
+      padding: 0;
       border: 1px solid transparent;
+      border-radius: 50%;
 
-      margin: 40px;
+      margin: 35px;
+      color: rgba(255, 255, 255, 0.3);
       background-color: transparent;
       cursor: pointer;
 
-      :hover {
-        From https://css.glass
+      transition: 1s ease-in-out;
+
+      &:hover {
+        /* From https://css.glass */
         background: rgba(255, 255, 255, 0.2);
-        border-radius: 10px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        color: var(--orange);
+        border-color: rgba(255, 255, 255, 0.3);
+        color: var(--yellow-2);
+      }
+      &:disabled {
+        color: rgba(255, 255, 255, 0.2);
       }
     }
-  } */
+  }
 `;

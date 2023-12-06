@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
+import { RefObject } from "react";
 
 const slideList = keyframes`
  0% {
@@ -19,43 +20,87 @@ const slideList = keyframes`
 
 `;
 
-export const Title = styled.h2`
-  display: flex;
+export const TitleH2 = styled.h2`
+  display: inline-flex;
   /* flex-direction: column; */
-  /* align-items: center; */
-  color: black;
+  align-items: center;
   font-size: 1.7rem;
   font-weight: 700;
   margin: 10px;
-  /* width: 100%; */
+  height: auto;
+
+  .title-span {
+    background-color: var(--grey-0);
+    color: var(--yellow-1);
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
 `;
 
 export const StyledSection = styled(motion.section)`
+  position: relative;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  width: 95vw;
+  width: 100vw;
   height: auto;
-  overflow: hidden;
+  overflow-x: hidden;
 
-  margin: 50px auto;
+  margin: auto;
+  margin-bottom: 40px;
+  /* padding-left: 20px; */
 
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
+  background: #e5d5ff;
+  /* border-radius: 10px; */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--orange);
+
+  .button-slider-list-container {
+    position: absolute;
+    top: 50%;
+    width: 95%;
+    z-index: 9;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: auto;
+
+    button {
+      background: rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      color: rgba(0, 0, 0, 0.1);
+      &:hover {
+        color: var(--yellow-1);
+      }
+      &:disabled {
+        color: transparent;
+      }
+    }
+  }
 `;
 
-export const StyledList = styled(motion.ul)`
+export const StyledList = styled.ul<{
+  x?: string;
+}>`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: left;
-  margin-right: 20px;
-  width: auto;
+  width: 100vw;
+  border-radius: 10px;
+
+  transform: translate(${({ x }) => (x ? x : "")});
+  transition: 5s ease-in-out;
 
   cursor: grab;
   /* width: 98vw; */
@@ -87,7 +132,7 @@ export const StyledList = styled(motion.ul)`
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: var(--orange); */
 
-    :hover {
+    &:hover {
       box-shadow: 2px 4px 8px var(--grey-3);
     }
   }

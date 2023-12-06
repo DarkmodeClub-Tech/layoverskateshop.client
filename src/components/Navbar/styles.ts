@@ -17,8 +17,9 @@ export const Nav = styled.nav`
   overflow-x: auto;
 
   width: 100%;
+  background-color: var(--grey-0);
 
-  background: rgba(10, 10, 10, 0.86);
+  /* background: rgba(10, 10, 10, 0.86); */
   /* background: rgba(255, 255, 255, 0.2); */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(1.5px);
@@ -36,15 +37,16 @@ export const Nav = styled.nav`
     /* background-color: var(--grey-0); */
     color: var(--white-fixed);
 
-    margin: 5px 10px 5px 10px;
+    /* margin: 5px 10px 5px 10px; */
+
+    padding: 5px 10px 5px 10px;
 
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 700;
     border-bottom: 1px solid transparent;
 
-    :hover {
-      color: var(--yellow-2);
-      /* border-color: var(--yellow-2); */
+    &:hover {
+      border-color: var(--yellow-2);
     }
     figure {
       display: flex;
@@ -80,7 +82,7 @@ export const Nav = styled.nav`
   }
 `;
 
-export const ProductListNav = styled.nav`
+export const ProductListUl = styled.ul`
   position: absolute;
   z-index: 8;
   display: flex;
@@ -91,35 +93,27 @@ export const ProductListNav = styled.nav`
   height: auto;
   width: 100vw;
 
-  background-color: aliceblue;
-
-  background: rgba(10, 10, 10, 0.86);
-  /* background: rgba(255, 255, 255, 0.2); */
+  /* background: rgba(10, 10, 10, 0.86); */
+  background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 
-  ul {
+  width: 100%;
+  height: auto;
+
+  li {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+    flex-direction: row;
+    width: 80%;
 
-    width: 100%;
-    height: auto;
+    background: rgba(255, 255, 255, 0.2);
+    /* background: rgba(10, 10, 10, 0.86); */
 
-    li {
-      display: flex;
-      flex-direction: row;
-      width: 80%;
+    border-radius: 5px;
 
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 5px;
-
-      overflow: hidden;
-    }
+    overflow: hidden;
   }
 
   .product-link {

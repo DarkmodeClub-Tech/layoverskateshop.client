@@ -5,12 +5,11 @@ import { TProduct } from "../interfaces";
 import { TProductPageProps } from "../components/ProductComponent";
 
 export const api = axios.create({
-  baseURL: `https://lvr-server.onrender.com`,
+  baseURL: `https://lvr-server-5ud7.onrender.com`,
   headers: {
     Accept: "application/json, text/plain, */*",
-    // "User-Agent": "*",
   },
-  timeout: 155000,
+  // timeout: 155000,
 });
 
 api.interceptors.request.use((config) => {

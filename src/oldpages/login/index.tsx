@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import LoginForm from "../../components/Forms/LoginForm";
-import { UserContext } from "../../contexts/user.context";
+import { UserContext } from "../../app/contexts/user";
 import { getAuthToken } from "../../services/cookies";
 import { LoadingElement } from "../../components/LoadingElement";
 

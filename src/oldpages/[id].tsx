@@ -3,10 +3,10 @@ import { useContext, useEffect, useState } from "react";
 import { TProduct, TProductsResponse } from "../interfaces/products";
 import { InferGetServerSidePropsType } from "next";
 import { api } from "../services/api";
-import { ProductsContext } from "../contexts/product.context";
+import { ProductsContext } from "../app/contexts/product";
 import { TCategoriesResponse } from "../interfaces/category";
 import { ProductComponent } from "../components/ProductComponent";
-import { UserContext } from "../contexts/user.context";
+import { UserContext } from "../app/contexts/user";
 import { LoadingElement } from "../components/LoadingElement";
 
 export const getServerSideProps = async () => {

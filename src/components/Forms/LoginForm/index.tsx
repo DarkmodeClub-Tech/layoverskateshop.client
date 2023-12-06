@@ -7,7 +7,7 @@ import Link from "next/link";
 import { z } from "zod";
 import { api } from "../../../services/api";
 import { setAuthToken } from "../../../services/cookies";
-import { UserContext } from "../../../contexts/user.context";
+import { UserContext } from "../../../app/contexts/user";
 import { useContext } from "react";
 import { TLoginRequest } from "../../../interfaces/user";
 import { loginSchema } from "../../../schemas/user.schemas";

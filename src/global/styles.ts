@@ -70,11 +70,16 @@ table {
 body{
   overflow-x:hidden ;
   background-color: #DEE2E6;
-  background-image: url("bg-img1.png");
+  /* background-image: url("bg-img1.png"); */
   /* background-image:url("pexels-kaique-rocha-561654.jpg"); */
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
+  /* background-position: center; */
+  /* background-size: 100%; */
+  background-repeat: repeat-y;
+  
+  width: 100vw;
+  height: 100vh;
   /* background-size: 100svw; */
 
   ::-webkit-scrollbar {
