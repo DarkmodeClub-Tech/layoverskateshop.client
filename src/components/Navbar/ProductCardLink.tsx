@@ -10,7 +10,7 @@ export const ProductCardLink = ({ product }: { product: TProduct }) => {
   });
 
   return (
-    <Link href={`/${product.id}`} className="product-link">
+    <Link href={`/products/${product.id}`} className="product-link">
       <figure>
         <img src={product.photos[0].url} alt="product photo" />
       </figure>

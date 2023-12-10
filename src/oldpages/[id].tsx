@@ -5,7 +5,7 @@ import { InferGetServerSidePropsType } from "next";
 import { api } from "../services/api";
 import { ProductsContext } from "../app/contexts/product";
 import { TCategoriesResponse } from "../interfaces/category";
-import { ProductComponent } from "../components/ProductComponent";
+import { ProductLayout } from "../components/ProductLayout";
 import { UserContext } from "../app/contexts/user";
 import { LoadingElement } from "../components/LoadingElement";
 
@@ -24,14 +24,14 @@ const ProductPage = ({
   const router = useRouter();
   const { id } = router.query;
   const { setProducts, setCategories } = useContext(ProductsContext);
-  const { isLoading, setIsLoading, setCart } = useContext(UserContext);
+  const { setCart } = useContext(UserContext);
 
   const [filteredProducts, setFilteredProducts] = useState<TProduct[]>([]);
 
-  useEffect(() => {
-    setProducts(products);
-    setCategories(categories);
-  }, []);
+  // useEffect(() => {
+  //   setProducts(products);
+  //   setCategories(categories);
+  // }, []);
 
   useEffect(() => {
     const filterProductById = (id: string) => {
@@ -39,25 +39,18 @@ const ProductPage = ({
       setFilteredProducts(product);
     };
     if (id) filterProductById(id as string);
-    setIsLoading(false);
   }, [id]);
 
   console.log(filteredProducts);
 
   return (
     <>
-      {isLoading ? (
-        <LoadingElement />
-      ) : (
-        <>
+   
           {filteredProducts.length > 0 ? (
             filteredProducts.map((p) => {
-              return <ProductComponent key={p.id} product={p} />;
+              return <ProductLayout key={p.id} product={p} />;
             })
-          ) : (
-            <></>
-          )}
-        </>
+
       )}
     </>
   );
