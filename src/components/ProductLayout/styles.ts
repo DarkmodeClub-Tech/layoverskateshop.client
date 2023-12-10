@@ -1,40 +1,15 @@
 import styled from "styled-components";
 
-export const ProductComponentContainer = styled.section`
+export const ProductLayoutContainer = styled.section`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 
-  width: 90%;
+  width: 100vw;
   height: auto;
   margin: 10px auto;
-
-  .image-list,
-  li,
-  figure,
-  img {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-  }
-
-  .bigger-figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    width: 50%;
-    height: auto;
-
-    /* margin-right: 10px; */
-    background-color: var(--white-fixed);
-  }
 
   .product-details-section {
     display: flex;
@@ -130,7 +105,7 @@ export const ProductComponentContainer = styled.section`
   @media screen and (max-width: 660px) {
     width: 100%;
 
-    .bigger-figure {
+    .product-figure {
       width: 100%;
     }
     .product-details-section {
@@ -142,7 +117,43 @@ export const ProductComponentContainer = styled.section`
   }
 `;
 
-export const DeliveryCalculatorForm = styled.form`
+export const ProductFigureContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  width: 80vw;
+  height: 80vh;
+
+  overflow-x: hidden;
+
+  .product-figure {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    /* margin-right: 10px; */
+    background-color: var(--white-fixed);
+
+    img {
+      display: flex;
+
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 120%;
+      height: auto;
+    }
+  }
+`;
+
+export const ProductLayoutForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

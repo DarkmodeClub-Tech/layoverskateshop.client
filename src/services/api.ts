@@ -2,7 +2,7 @@ import axios from "axios";
 import useSWR from "swr";
 import { getAuthToken } from "./cookies";
 import { TProduct } from "../interfaces";
-import { TProductPageProps } from "../components/ProductComponent";
+import { TProductPageProps } from "../components/ProductLayout";
 
 export const api = axios.create({
   baseURL: `https://lvr-server-5ud7.onrender.com`,

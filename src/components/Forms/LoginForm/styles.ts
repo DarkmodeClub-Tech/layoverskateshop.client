@@ -15,13 +15,18 @@ export const Form = styled.form`
   color: var(--orange);
 
   opacity: 0.9;
-  width: 50%;
+  width: 35%;
   margin: 20px auto;
 
   padding: 10px;
 
   border: 1px solid var(--grey-5);
   border-radius: 10px;
+  box-shadow: 2px 4px 8px var(--grey-3);
+
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
 
   .register-user {
     display: flex;
@@ -101,7 +106,7 @@ export const Form = styled.form`
       font-size: 0.9rem;
       font-weight: 600;
 
-      :hover {
+      &:hover {
         background-color: var(--orange);
         border: 1px solid var(--orange);
         color: var(--grey-0);

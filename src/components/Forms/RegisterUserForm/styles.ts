@@ -16,7 +16,7 @@ export const Form = styled.form`
 
   /* height: 100%;*/
   max-height: 90vh;
-  width: 45%;
+  width: 35%;
   margin: 0 auto;
   margin-top: 20px;
   padding-top: 20px;
@@ -28,6 +28,11 @@ export const Form = styled.form`
   overflow: auto;
 
   background-color: var(--white-fixed);
+  box-shadow: 2px 4px 8px var(--grey-3);
+
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
 
   ::-webkit-scrollbar {
     display: flex;
@@ -124,7 +129,7 @@ export const Form = styled.form`
         font-size: 0.9rem;
         font-weight: 600;
 
-        :hover {
+        &:hover {
           background-color: var(--orange);
           border: 1px solid var(--orange);
           color: var(--grey-0);

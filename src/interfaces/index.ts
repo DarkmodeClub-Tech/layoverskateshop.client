@@ -1,16 +1,7 @@
-import { TAddress } from "./address";
-import { TCart, TCartProduct } from "./cart";
-import { TCategory } from "./category";
-import { TPhoto } from "./photo";
-import { TProduct } from "./products";
-import { TUser } from "./user";
-
-export type {
-  TProduct,
-  TCartProduct,
-  TCart,
-  TCategory,
-  TPhoto,
-  TUser,
-  TAddress,
-};
+export * from "./address";
+export * from "./cart";
+export * from "./category";
+export * from "./photo";
+export * from "./products";
+export * from "./user";
+export * from "./seller";

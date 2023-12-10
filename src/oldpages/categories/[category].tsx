@@ -5,7 +5,7 @@ import { InferGetServerSidePropsType } from "next";
 import { api } from "../../services/api";
 import { ProductsContext } from "../../app/contexts/product";
 import { TCategoriesResponse, TCategory } from "../../interfaces/category";
-import { ProductComponent } from "../../components/ProductComponent";
+import { ProductLayout } from "../../components/ProductLayout";
 
 export const getServerSideProps = async () => {
   const { data: products }: TProductsResponse = await api.get("/products");
@@ -47,7 +47,7 @@ const ProductPage = ({
     <>
       {filteredProducts.length > 0 ? (
         filteredProducts.map((p) => {
-          return <ProductComponent key={p.id} product={p} />;
+          return <ProductLayout key={p.id} product={p} />;
         })
       ) : (
         <></>

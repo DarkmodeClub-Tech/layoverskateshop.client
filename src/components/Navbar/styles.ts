@@ -25,7 +25,7 @@ export const Nav = styled.nav`
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-
+  padding: 5px;
   a {
     display: flex;
     flex-direction: column;

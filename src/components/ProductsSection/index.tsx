@@ -10,6 +10,7 @@ import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
 } from "react-icons/io";
+import { useProductsContext } from "@/app/contexts";
 
 const ProductsSection = ({
   title,
@@ -18,23 +19,27 @@ const ProductsSection = ({
   title: string;
   products: TProduct[];
 }) => {
+  const { setProducts } = useProductsContext();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const sectionRef = useRef<HTMLElement>(null);
 
   console.log(currentIndex);
   const toLeft = () => {
-    // if (currentIndex > 0)
-    setCurrentIndex(currentIndex - 1);
+    if (currentIndex > 0) setCurrentIndex(currentIndex - 1);
     console.log(currentIndex);
   };
 
   const toRight = () => {
-    // if (currentIndex < 0)
-    // console.log(currentIndex);
-    setCurrentIndex(currentIndex + 1);
+    if (currentIndex < products.length - 1)
+      // console.log(currentIndex);
+      setCurrentIndex(currentIndex + 1);
     console.log(currentIndex);
   };
+
+  useEffect(() => {
+    setProducts(products);
+  }, [products]);
 
   return (
     // whileTap={{ cursor: "grabbing" }}
