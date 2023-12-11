@@ -107,7 +107,7 @@ export const StyledList = styled.ul<{
   /* width: 100%;
   overflow-x: hidden; */
 
-  .li-card {
+  /* .li-card {
     animation: ${slideList} 10s infinite;
     position: relative;
     display: flex;
@@ -132,8 +132,8 @@ export const StyledList = styled.ul<{
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: var(--orange); */
 
-    &:hover {
+  /* &:hover {
       box-shadow: 2px 4px 8px var(--grey-3);
-    }
-  }
+    } 
+  } */
 `;

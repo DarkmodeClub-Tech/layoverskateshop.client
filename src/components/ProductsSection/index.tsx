@@ -1,7 +1,7 @@
 "use client";
 import { TitleH2, StyledList, StyledSection } from "./styles";
 import { motion } from "framer-motion";
-import Card from "../Card";
+import ProductCard from "../ProductCard";
 // import { useState, useEffect, useRef, MutableRefObject } from "react";
 // import { RxDoubleArrowLeft, RxDoubleArrowRight } from "react-icons/rx";
 import { TProduct } from "../../interfaces";
@@ -72,7 +72,10 @@ const ProductsSection = ({
         {products.map((p) => {
           return (
             <li key={p.id} className="li-card">
-              <Card {...p} />
+              <ProductCard
+                product={p}
+                styles={{ width: "300px", height: "500px" }}
+              />
             </li>
           );
         })}

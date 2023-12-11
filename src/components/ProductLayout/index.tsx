@@ -12,13 +12,18 @@ import { ProductColorsField } from "./ProductColorsField";
 import { ProductFigure } from "./ProductFigure";
 import { ProductInfoSection } from "./ProductInfoSection";
 import { ProductButtonsField } from "./ProductButtonsField";
+import Slider from "../Slider";
 
 export const ProductLayout = ({ product }: { product: TProduct }) => {
   const { products } = useContext(ProductsContext);
 
   return (
     <ProductLayoutContainer>
-      <ProductFigure productImages={product.photos} />
+      <Slider
+        photos={product.photos}
+        styles={{ width: "60%", height: "auto" }}
+      />
+      {/* <ProductFigure productImages={product.photos} /> */}
       <ProductInfoSection product={product} />
       <ProductSizesField productSizes={product.available_sizes} />
       <ProductColorsField productColors={product.available_colors} />
