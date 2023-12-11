@@ -32,9 +32,6 @@ export const SliderContainer = styled.section<ISliderAtributes>`
   /* padding-top: 20px;
   padding-bottom: 20px; */
 
-  width: 100vw;
-  height: 100vh;
-
   width: ${({ width }) => (width ? width : "100vw")};
   height: ${({ height }) => (height ? height : "90vh")};
 
@@ -171,7 +168,8 @@ export const SliderContainer = styled.section<ISliderAtributes>`
       border-radius: 50%;
 
       margin: 35px;
-      color: rgba(255, 255, 255, 0.3);
+      /* color: rgba(255, 255, 255, 0.3); */
+      color: rgba(0, 0, 0, 0.1);
       background-color: transparent;
       cursor: pointer;
 

@@ -7,7 +7,7 @@ export const ProductLayoutContainer = styled.section`
   justify-content: flex-start;
   flex-wrap: wrap;
 
-  width: 100vw;
+  width: 95vw;
   height: auto;
   margin: 10px auto;
 

@@ -22,7 +22,7 @@ const Slider = ({ photos, children, styles }: ISliderProps) => {
 
   return (
     <SliderContainer x={`${-(currentIndex * 100)}%`} {...styles}>
-      <section className="add-container">{children}</section>
+      {/* <section className="add-container">{children}</section> */}
 
       <div className="button-container">
         <button

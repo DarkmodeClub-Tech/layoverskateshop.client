@@ -1,6 +1,8 @@
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 
-export const CardContainer = styled.div`
+export interface TCardContainerStyles extends CSSProperties {}
+
+export const CardContainer = styled.div<CSSProperties>`
   position: relative;
 
   display: flex;
@@ -11,12 +13,18 @@ export const CardContainer = styled.div`
   background-color: white;
   opacity: 5;
 
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  min-height: 400px;
+  width: ${({ width }) => (width ? width : "100%")};
+  height: ${({ height }) => (height ? height : "auto")};
+  max-height: ${({ maxHeight }) => (maxHeight ? maxHeight : "500px")};
+  min-height: ${({ minHeight }) => (minHeight ? minHeight : "500px")};
 
-  figure {
+  border-radius: 10px;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 2px 4px 8px var(--grey-3);
+  }
+  /* figure {
     position: absolute;
 
     display: flex;
@@ -38,7 +46,7 @@ export const CardContainer = styled.div`
 
       pointer-events: none;
     }
-  }
+  } */
   .product-dectails {
     position: absolute;
     top: 65%;
